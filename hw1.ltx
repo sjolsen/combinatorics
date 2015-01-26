@@ -59,10 +59,26 @@ There are ${15 \choose 15} = 1$ ways to choose the men for the couples. For each
 There are ${15 \choose 10}$ ways to choose the men for the couples. For each, there are ${20 \choose 1} = 20$ ways to choose a woman to pair with the first man, ${19 \choose 1} = 19$ ways to choose a woman to pair with the second, and so on. Then, there are ${15 \choose 10} \cdot (20 \cdot 19 \cdot \cdots \cdot 12 \cdot 11)$ ways to form $10$ couples.
 
 \subsection*{17. In how many ways can six indistinguishable rooks be placed on a $6$-by-$6$ board so that no two rooks can attack one another? In how many ways if there are two red and four blue rooks?}
+No two rooks may be on the same row or column. Because there are six rooks, six rows, and six columns, there must be exactly one column associated with each row and vice versa. Then, there are $6$ possible columns to pair with the first row; for each, there are $5$ to pair with the second; and so on. Then, there are $6 \cdot 5 \cdot 4 \cdot 3 \cdot 2 \cdot 1$ arrangements.
+
+Because color and position are independent, we can multiply the number of position arrangements by the number of color arrangements for a single position arrangement. Because there are ${6 \choose 2} = {6 \choose 4}$ ways to color a position arrangement, there are then $6! \cdot {6 \choose 2}$ position-color arrangements.
 
 \subsection*{20. Determine the number of circular permutations of $\{0, 1, 2, \ldots, 9\}$ in which $0$ and $9$ are not opposite. ({\it Hint}: Count those in which $0$ and $9$ are opposite.)}
+There are $10!$ (non-circular) permutations of $\{0, 1, 2, \ldots, 9\}$. For each of the $10$ positions in which $0$ can be placed, there are $8!$ possible permutations in which $0$ and $9$ are ``opposite.'' Then, there are $10! - 10 \cdot 8!$ permutations in which $0$ and $9$ are {\it not} opposite. Dividing this by $10$ yields $9! - 8!$ circular permutations in which $0$ and $9$ are not opposite.
 
 \subsection*{21. How many permutations are there of the letters of the word ADDRESSES? How many $8$-permutations are there of these nine letters?}
+With letter uniqueness, there are $9!$ permutations of the word ADDRESSES. Then, there are $\frac{9!}{1! \cdot 2! \cdot 1! \cdot 2! \cdot 3!}$ without.
+
+The 8-permutations obtained by omitting one of each letter have the following numbers:
+\begin{itemize}
+\item A: $\frac{8!}{0! \cdot 2! \cdot 1! \cdot 2! \cdot 3!}$
+\item D: $\frac{8!}{1! \cdot 1! \cdot 1! \cdot 2! \cdot 3!}$
+\item R: $\frac{8!}{1! \cdot 2! \cdot 0! \cdot 2! \cdot 3!}$
+\item E: $\frac{8!}{1! \cdot 2! \cdot 1! \cdot 1! \cdot 3!}$
+\item S: $\frac{8!}{1! \cdot 2! \cdot 1! \cdot 2! \cdot 2!}$
+\end{itemize}
+
+The total number of 8-permutations is given by the sum of these.
 
 \subsection*{24. A roller coaster has five cars, each containing four seats, two in front and two in back. There are $20$ people ready for a ride. In how many ways can the ride begin? What if a certain two people want to sit in different cars?}
 
