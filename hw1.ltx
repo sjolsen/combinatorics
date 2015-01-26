@@ -1,5 +1,6 @@
 \documentclass{article}
 \usepackage{fullpage}
+\usepackage{amsmath}
 \usepackage{amsfonts}
 
 \title{MATH 4350 -- Homework 1}
@@ -109,10 +110,21 @@ The $11$-permutations can be formed by removing one of each element in turn from
 
 \subsection*{39. There are $20$ identical sticks lined up in a row occupying $20$ distinct places. Six of them are to be chosen.}
 \subsubsection*{(a) How many choices are there?}
+$20 \choose 6$.
+
 \subsubsection*{(b) How many choices are there if no two of the chosen sticks can be consecutive?}
+TODO (similar to 11)
+
 \subsubsection*{(c) How many choices are there if there must be at least two sticks between each pair of chosen sticks?}
+TODO (similar to b)
 
 \subsection*{55. How many permutations are there of the letters in the words}
 \subsubsection*{(a) TRISKAIDEKAPHOBIA?}
+TRISKAIDEKAPHOBIA has $17$ letters and corresponds to the multiset
+\begin{align*}
+\{3 \cdot A, 1 \cdot B, 1 \cdot D, 1 \cdot E, 1 \cdot H, 3 \cdot I, 2 \cdot K, 1 \cdot O, 1 \cdot P, 1 \cdot R, 1 \cdot S, 1 \cdot T\}.
+\end{align*}
+
+It thus has $\frac{17!}{3! \cdot 1! \cdot 1! \cdot 1! \cdot 1! \cdot 3! \cdot 2! \cdot 1! \cdot 1! \cdot 1! \cdot 1! \cdot 1!} = \frac{17!}{3! \cdot 3! \cdot 2!}$ letter permutations.
 
 \end{document}
