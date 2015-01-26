@@ -71,5 +71,6 @@ TODO (``tower?'')
 Consider a set $S$ with $n$ elements $x_1$ to $x_n$. The number of unordered pairs containing $x_1$ is $n-1$: one for each of $x_2$ through $x_n$. The number of pairs containing $x_2$ (discounting those previously counted) is $n-2$: one for each of $x_3$ through $x_n$. Continuing this way, we count one new pair when considering $x_{n-1}$, and no new pairs when considering $x_n$. Thus, the total number of unordered pairs which can be formed from $S$, i.e. $n \choose 2$, is $(n-1) + (n-2) + \cdots + 1 + 0$, or $1 + 2 + 3 + \cdots + (n-1)$.
 
 \section*{Explain the proof of Theorem 2.4.2 (in detail, in your own words).}
+The proof works by allocating $n$ indices for the $n$-multiset's elements one ``type'' at a time. For each type $a_k$ in turn, with count $n_k$, the proof {\it chooses} $n_k$ of the remaining indices and populates them with the $a_k$ in no particular order. The proof uses the multiplication principle to accumulate the numbers of these choices, and arithmetically demonstrates the result to be equivalent to the given formula.
 
 \end{document}
