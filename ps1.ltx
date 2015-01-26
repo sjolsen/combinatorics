@@ -47,20 +47,28 @@ Take as the inductive hypothesis that $f(k-1) = {{m+(k-1)+1} \choose {m+1}}$. Th
   f(k) &= \frac{(m+k)!}{m!k!} \cdot \frac{k+(m+1)}{m+1}\\
   f(k) &= \frac{(m+k)!}{m!k!} \cdot \frac{(m+k)+1}{m+1}\\
   f(k) &= \frac{(m+k+1)!}{(m+1)!k!}\\
-  f(k) &= {{m+k+1} \choose {m+1}}.\\
+  f(k) &= {{m+k+1} \choose {m+1}}.
 \end{align*}
 \end{itemize}
 
 Therefore, by induction, the number of permutations of $m$ As and at most $n$ Bs equals ${m + n + 1} \choose {m + 1}$. $\blacksquare$
 
 \subsection*{53. Find a one-to-one correspondance between the permutations of the set $\{1, 2, \ldots, n\}$ and the towers $A_0 \subset A_1 \subset A_2 \subset \cdots \subset A_n$ where $|A_k| = k$ for $k = 0, 1, 2, \ldots, n$.}
-
+TODO (``tower?'')
 
 \section*{Provide an algebraic proof of Pascal's Formula, ${n \choose k} = {{n - 1} \choose k} + {{n - 1} \choose {k - 1}}$.}
 
+\begin{align*}
+  {n \choose k} &= \frac{n!}{k!(n-k)!}\\
+                &= \frac{(n-1)! \cdot n}{k!(n-k)!}\\
+                &= \frac{(n-1)!}{k!(n-k)!} \cdot (n - k + k)\\
+                &= \frac{(n-1)! \cdot (n-k)}{k!(n-k)!} + \frac{(n-1)! \cdot k}{k!(n-k)!}\\
+                &= \frac{(n-1)!}{k!(n-1-k)!} + \frac{(n-1)!}{(k-1)!(n-k)!}\\
+                &= {{n-1} \choose k} + {{n-1} \choose {k-1}}\\ \blacksquare
+\end{align*}
 
 \section*{Provide a combinatorial proof of Gauss' Formula, $1 + 2 + 3 + \cdots + (n - 1) = {n \choose 2}$.}
-
+Consider a set $S$ with $n$ elements $x_1$ to $x_n$. The number of unordered pairs containing $x_1$ is $n-1$: one for each of $x_2$ through $x_n$. The number of pairs containing $x_2$ (discounting those previously counted) is $n-2$: one for each of $x_3$ through $x_n$. Continuing this way, we count one new pair when considering $x_{n-1}$, and no new pairs when considering $x_n$. Thus, the total number of unordered pairs which can be formed from $S$, i.e. $n \choose 2$, is $(n-1) + (n-2) + \cdots + 1 + 0$, or $1 + 2 + 3 + \cdots + (n-1)$.
 
 \section*{Explain the proof of Theorem 2.4.2 (in detail, in your own words).}
 
