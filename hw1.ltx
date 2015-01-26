@@ -12,10 +12,28 @@
 \subsubsection*{(a) The digits are distinct.}
 \subsubsection*{(b) The number is even.}
 
+\begin{itemize}
+\item Case $\{\}$:
+
+There are five possibilities for each of four independent digits; the number of possibilities is then $5^4$.
+\item Case $\{a\}$:
+
+There are five possibilities for the first digit. For each, there are four possibilities for the second; for each of these, three possibilities for the third; and for each of these, two for the last. Then, the number of possibilities is $5 \cdot 4 \cdot 3 \cdot 2$.
+\item Case $\{b\}$:
+
+A number is even iff its last digit is even. Then, there are two possibilities ($2$ and $4$) for the fourth digit and five for each of the rest. This gives $5^3 \cdot 2$ possibilities.
+\item Case $\{a, b\}$:
+
+There are two possibilities for the last digit. For each, there are four possibilities for the third digit, for each of which there are three possibilities for the second digit, for each of which there are two possibilities for the third. Then, there are $2 \cdot 4 \cdot 3 \cdot 2$ possibilities.
+\end{itemize}
+
 \subsection*{4. How many distinct positive divisors does each of the following numbers have?}
 \subsubsection*{(a) $3^4 \times 5^2 \times 7^6 \times 11$}
+Each divisor can be written as $3^i \cdot 5^j \cdot 7^m \cdot 11^n$, for some $0 \le i \le 4$, $0 \le j \le 2$, $0 \le m \le 6$, and $0 \le n \le 1$. There are $5 \cdot 3 \cdot 7 \cdot 2$ such expressions. By the fundamental theorem of arithmetic, this is exactly the number of divisors.
 \subsubsection*{(b) $620$}
+The prime factorization of $620$ is $2^2 \times 5 \times 31$. By the above process, there are $3 \cdot 2 \cdot 2$ divisors.
 \subsubsection*{(c) $10^{10}$}
+The prime factorization of $10^{10}$ is $2^{10} \times 5^{10}$. By the above process, there are $11 \cdot 11$ divisors.
 
 
 \subsection*{7. In how many ways can four men and eight women be seated at a round table if there are to be two women between consecutive men around the table?}
