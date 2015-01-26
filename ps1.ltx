@@ -11,8 +11,10 @@
 
 \section*{Chapter 2.7}
 \subsection*{16. Prove that ${n \choose r} = {n \choose {n - r}}$ by using a combinatorial argument and not the values of these numbers as given in Theorem 2.3.1.}
+$n \choose r$ denotes the number of ways to choose $r$ elements of $n$; that is, to partition $n$ elements into a subset of $r$ ``chosen'' elements and a subset of $n - r$ ``not chosen'' elements. By exchanging the labels ``chosen'' and ``not chosen,'' we see that the number of ways to choose $n - r$ elements of $n$ is the same as the number of ways to choose $r$ elements, i.e. ${n \choose r} = {n \choose {n - r}}$.
 
 \subsection*{29. Let $S$ be a multiset with repetition numbers $n_1, n_2, \ldots, n_k$, where $n_1 = 1$. Let $n = n_2 + \cdots + n_k$. Prove that the number of circular permutations of $S$ equals $\frac{n!}{n_2! \cdots n_k!}$.}
+Note that $\left| S \right| = n + n_1$. By Theorem 2.4.2, there are $\frac{(n+n_1)!}{n_1!n_2! \cdots n_k!}$ non-circular permutations of $S$. By Theorem 2.2.2, then, there are $\frac{(n+n_1)!}{(n+n_1) \cdot n_1!n_2! \cdots n_k!} = \frac{(n+n_1 - 1)!}{n_1!n_2! \cdots n_k!} = \frac{n!}{n_2! \cdots n_k!}$ circular permutations of $S$.
 
 \subsection*{48. Prove that the number of permutations of $m$ As and at most $n$ Bs equals ${m + n + 1} \choose {m + 1}$.}
 
