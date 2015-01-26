@@ -41,9 +41,9 @@ Choose some $m_1$ from the set of men. There are $12$ choices for seating $m_1$.
 If seatings which differ only by rotation are considered equivalent, then there are $\frac{12 \cdot 3! \cdot 8!}{12} = 3! \cdot 8!$ ways to seat the party.
 
 \subsection*{10. A committee of five people is to be chosen from a club that boasts a membership of $10$ men and $12$ women. How many ways can the committee be formed if it is to contain at least two women? How many ways if, in addition, one particular man and one particular woman who are members of the club refuse to serve together on the committee?}
-There are ${12 + 10} \choose 5$ ways to form a committee of five with no restrictions on membership. Of these, ${12 \choose 0} \cdot {10 \choose 5}$ contain no women and ${12 \choose 1} \cdot {10 \choose 4}$ contain only one. Then, there are ${{12 + 10} \choose 5} - {{12 \choose 0} \cdot {10 \choose 5}} - {{12 \choose 1} \cdot {10 \choose 4}}$ ways to form a committee of five with at least two women.
+There are ${12 + 10} \choose 5$ ways to form a committee of five with no restrictions on membership. Of these, ${12 \choose 0} \cdot {10 \choose 5}$ contain no women and ${12 \choose 1} \cdot {10 \choose 4}$ contain only one. Then, there are ${{12 + 10} \choose 5} - \left[ {{12 \choose 0} \cdot {10 \choose 5}} + {{12 \choose 1} \cdot {10 \choose 4}} \right]$ ways to form a committee of five with at least two women.
 
-?
+On a committee with $n$ women ($2 \le n \le 5$), there are ${12 - 1} \choose {n - 1}$ ways to choose the women such that the particular woman is on the committee; and ${10 - 1} \choose {5 - n - 1}$ ways to choose the men such that the particular man is on the committee. Since these are independent, there are ${11 \choose {n - 1}} \cdot {9 \choose {4 - n}}$ ways to form a committee with the particular man and woman. Thus, there are ${{12 + 10} \choose 5} - \left[ {{12 \choose 0} \cdot {10 \choose 5}} + {{12 \choose 1} \cdot {10 \choose 4}} \right] - \left[ \sum_{n=2}^5 {11 \choose {n - 1}} \cdot {9 \choose {4 - n}} \right]$ ways to form a committee meeting all restrictions.
 
 \subsection*{11. How many sets of three integers between $1$ and $20$ are possible if no two consecutive integers are to be in a set?}
 
