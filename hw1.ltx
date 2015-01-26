@@ -35,10 +35,15 @@ The prime factorization of $620$ is $2^2 \times 5 \times 31$. By the above proce
 \subsubsection*{(c) $10^{10}$}
 The prime factorization of $10^{10}$ is $2^{10} \times 5^{10}$. By the above process, there are $11 \cdot 11$ divisors.
 
-
 \subsection*{7. In how many ways can four men and eight women be seated at a round table if there are to be two women between consecutive men around the table?}
+Choose some $m_1$ from the set of men. There are $12$ choices for seating $m_1$. For each, there are three seats in which the three remaining men may sit; then, for each seating for $m_1$, there are $3!$ ways to seat the men. For each way to seat the men, there are (from $8$ women and $8$ seats) $8!$ ways to seat the women. Thus, there are $12 \cdot 3! \cdot 8!$ ways to seat the party.
+
+If seatings which differ only by rotation are considered equivalent, then there are $\frac{12 \cdot 3! \cdot 8!}{12} = 3! \cdot 8!$ ways to seat the party.
 
 \subsection*{10. A committee of five people is to be chosen from a club that boasts a membership of $10$ men and $12$ women. How many ways can the committee be formed if it is to contain at least two women? How many ways if, in addition, one particular man and one particular woman who are members of the club refuse to serve together on the committee?}
+There are ${12 + 10} \choose 5$ ways to form a committee of five with no restrictions on membership. Of these, ${12 \choose 0} \cdot {10 \choose 5}$ contain no women and ${12 \choose 1} \cdot {10 \choose 4}$ contain only one. Then, there are ${{12 + 10} \choose 5} - {{12 \choose 0} \cdot {10 \choose 5}} - {{12 \choose 1} \cdot {10 \choose 4}}$ ways to form a committee of five with at least two women.
+
+?
 
 \subsection*{11. How many sets of three integers between $1$ and $20$ are possible if no two consecutive integers are to be in a set?}
 
