@@ -1,6 +1,7 @@
 \documentclass{article}
 \usepackage{fullpage}
 \usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{amsfonts}
 
 \title{MATH 4350 -- Problem Set 1}
@@ -17,6 +18,40 @@ $n \choose r$ denotes the number of ways to choose $r$ elements of $n$; that is,
 Note that $\left| S \right| = n + n_1$. By Theorem 2.4.2, there are $\frac{(n+n_1)!}{n_1!n_2! \cdots n_k!}$ non-circular permutations of $S$. By Theorem 2.2.2, then, there are $\frac{(n+n_1)!}{(n+n_1) \cdot n_1!n_2! \cdots n_k!} = \frac{(n+n_1 - 1)!}{n_1!n_2! \cdots n_k!} = \frac{n!}{n_2! \cdots n_k!}$ circular permutations of $S$.
 
 \subsection*{48. Prove that the number of permutations of $m$ As and at most $n$ Bs equals ${m + n + 1} \choose {m + 1}$.}
+By Theorem 2.4.2, the number of permutations of $m$ As and exactly $n$ Bs is given by $\frac{(m+n)!}{m!n!}$. Then, the number of permutations of $m$ As and {\it at most} $n$ Bs is $\sum_{i=0}^n \frac{(m+i)!}{m!i!}$. Letting $f(n)$ denote this value, we proceed to prove $f(n) = {{m + n + 1} \choose {m + 1}}$ by induction:
+
+\begin{itemize}
+\item $k = 0$:
+
+Evaluating $f(k)$ and ${{m+k+1} \choose {m+1}}$ for $k = 0$ yields:
+
+  \begin{align*}
+    f(k) &= f(0)\\
+    &= \sum_{i=0}^0 \frac{(m+0)!}{m!0!} & {{m+k+1} \choose {m+1}} &= {{m+0+1} \choose {m+1}}\\
+    &= \frac{m!}{m!} & &= {{m+1} \choose {m+1}}\\
+    &= 1 & &= 1.\\
+  \end{align*}
+
+Then, $f(k) = {{m+k+1} \choose {m+1}}$.
+
+\item $k > 1$:
+
+Take as the inductive hypothesis that $f(k-1) = {{m+(k-1)+1} \choose {m+1}}$. Then,
+
+\begin{align*}
+  f(k-1) &= {{m+(k-1)+1} \choose {m+1}}\\
+  \sum_{i=0}^{k-1} \frac{(m+i)!}{m!i!} &= \frac{(m+k)!}{(m+1)!(k-1)!}\\
+  \sum_{i=0}^{k-1} \frac{(m+i)!}{m!i!} + \frac{(m+k)!}{m!k!} &= \frac{(m+k)!}{(m+1)!(k-1)!} + \frac{(m+k)!}{m!k!}\\
+  \sum_{i=0}^{k} \frac{(m+i)!}{m!i!} &= \frac{(m+k)!}{m!k!} \cdot \frac{k}{m+1} + \frac{(m+k)!}{m!k!}\\
+  f(k) &= \frac{(m+k)!}{m!k!} \cdot \left( \frac{k}{m+1} + 1 \right)\\
+  f(k) &= \frac{(m+k)!}{m!k!} \cdot \frac{k+(m+1)}{m+1}\\
+  f(k) &= \frac{(m+k)!}{m!k!} \cdot \frac{(m+k)+1}{m+1}\\
+  f(k) &= \frac{(m+k+1)!}{(m+1)!k!}\\
+  f(k) &= {{m+k+1} \choose {m+1}}.\\
+\end{align*}
+\end{itemize}
+
+Therefore, by induction, the number of permutations of $m$ As and at most $n$ Bs equals ${m + n + 1} \choose {m + 1}$. $\blacksquare$
 
 \subsection*{53. Find a one-to-one correspondance between the permutations of the set $\{1, 2, \ldots, n\}$ and the towers $A_0 \subset A_1 \subset A_2 \subset \cdots \subset A_n$ where $|A_k| = k$ for $k = 0, 1, 2, \ldots, n$.}
 
