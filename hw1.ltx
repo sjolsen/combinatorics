@@ -48,9 +48,9 @@ There are ${12 + 10} \choose 5$ ways to form a committee of five with no restric
 On a committee with $n$ women ($2 \le n \le 5$), there are ${12 - 1} \choose {n - 1}$ ways to choose the women such that the particular woman is on the committee; and ${10 - 1} \choose {5 - n - 1}$ ways to choose the men such that the particular man is on the committee. Since these are independent, there are ${11 \choose {n - 1}} \cdot {9 \choose {4 - n}}$ ways to form a committee with the particular man and woman. Thus, there are ${{12 + 10} \choose 5} - \left[ {{12 \choose 0} \cdot {10 \choose 5}} + {{12 \choose 1} \cdot {10 \choose 4}} \right] - \left[ \sum_{n=2}^5 {11 \choose {n - 1}} \cdot {9 \choose {4 - n}} \right]$ ways to form a committee meeting all restrictions.
 
 \subsection*{11. How many sets of three integers between $1$ and $20$ are possible if no two consecutive integers are to be in a set?}
-{\it Note: assuming ``integers between $1$ and $20$'' means $\mathbb{Z} \cap [1, 20]$.}
+There are $20 \choose 3$ subsets of $\mathbb{Z} \cap [1, 20]$ of size $3$. These can be partitioned into those which contain no consecutive elements, those which contain a pair of consecutive elements, and those which contain three consecutive elements.
 
-TODO (induction?)
+There are $17$ subsets containing $1$, $2$, and another non-consecutive element; the same holds for $19$ and $20$. For each of the remaining $17$ consecutive pairs, there are $16$ such subsets. There are $18$ subsets containing three consecutive elements. Thus, there are ${20 \choose 3} - \left[ 2 \cdot 17 + 17 \cdot 16 \right] - 18$ subsets of $\mathbb{Z} \cap [1, 20]$ of size three containing no consecutive elements.
 
 \subsection*{15. At a party there are $15$ men and $20$ women.}
 \subsubsection*{(a) How many ways are there to form $15$ couples consisting of one man and one woman?}
