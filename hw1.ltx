@@ -1,5 +1,6 @@
 \documentclass{article}
 \usepackage{fullpage}
+\usepackage{amsfonts}
 
 \title{MATH 4350 -- Homework 1}
 \author{Stuart Olsen}
@@ -46,10 +47,16 @@ There are ${12 + 10} \choose 5$ ways to form a committee of five with no restric
 On a committee with $n$ women ($2 \le n \le 5$), there are ${12 - 1} \choose {n - 1}$ ways to choose the women such that the particular woman is on the committee; and ${10 - 1} \choose {5 - n - 1}$ ways to choose the men such that the particular man is on the committee. Since these are independent, there are ${11 \choose {n - 1}} \cdot {9 \choose {4 - n}}$ ways to form a committee with the particular man and woman. Thus, there are ${{12 + 10} \choose 5} - \left[ {{12 \choose 0} \cdot {10 \choose 5}} + {{12 \choose 1} \cdot {10 \choose 4}} \right] - \left[ \sum_{n=2}^5 {11 \choose {n - 1}} \cdot {9 \choose {4 - n}} \right]$ ways to form a committee meeting all restrictions.
 
 \subsection*{11. How many sets of three integers between $1$ and $20$ are possible if no two consecutive integers are to be in a set?}
+{\it Note: assuming ``integers between $1$ and $20$'' means $\mathbb{Z} \cap [1, 20]$.}
+
+TODO (induction?)
 
 \subsection*{15. At a party there are $15$ men and $20$ women.}
 \subsubsection*{(a) How many ways are there to form $15$ couples consisting of one man and one woman?}
+There are ${15 \choose 15} = 1$ ways to choose the men for the couples. For each, there are ${20 \choose 1} = 20$ ways to choose a woman to pair with the first man, ${19 \choose 1} = 19$ ways to choose a woman to pair with the second, and so on. Then, there are $1 \cdot (20 \cdot 19 \cdot \cdots \cdot 7 \cdot 6)$ ways to form $15$ couples.
+
 \subsubsection*{(b) How many ways are there to form $10$ couples consisting of one man and one woman?}
+There are ${15 \choose 10}$ ways to choose the men for the couples. For each, there are ${20 \choose 1} = 20$ ways to choose a woman to pair with the first man, ${19 \choose 1} = 19$ ways to choose a woman to pair with the second, and so on. Then, there are ${15 \choose 10} \cdot (20 \cdot 19 \cdot \cdots \cdot 12 \cdot 11)$ ways to form $10$ couples.
 
 \subsection*{17. In how many ways can six indistinguishable rooks be placed on a $6$-by-$6$ board so that no two rooks can attack one another? In how many ways if there are two red and four blue rooks?}
 
