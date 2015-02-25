@@ -12,8 +12,23 @@
 
 \section*{Chapter 3}
 \subsection*{1. Concerning Application 4, show that there is a succession of days during which the chess master will have played exactly $k$ games, for each $k = 1, 2, \ldots, 21$. (The case $k = 21$ is the case treated in Application 4.) Is it possible to conclude that there is a succession of days during which the chess master will have played exactly $22$ games?}
+Let $k \in [1, 21]$. By the same construction, we have
+\begin{align*}
+  1 + k \le a_1 + k < a_2 + k < \cdots < a_{77} + k \le 132 + k.
+\end{align*}
+As before, we have the $154$ numbers
+\begin{align*}
+  a_1, a_2, \ldots, a_{77}, a_1 + k, a_2 + k, \ldots, a_{77} + k,
+\end{align*}
+each of which is an integer in $[1, 132 + k]$; because $k \le 21$, this interval has a maximum size of $(132 + 21) - (1) + 1 = 153$. Again, it then follows that two of the $154$ numbers are equal, and thus that there is some sequence of days during which the chess master played a total of $k$ games.
+
+It is not possible to prove that there is a succession of days during which the chess master will have played exactly $22$ games using this strategy, as it will produce $154$ numbers and $154$ ``pigeonholes.''
 
 \subsection*{2. Concerning Application 5, show that if $100$ integers are chosen from $1, 2, \ldots, 200$, and one of the integers chosen is less than $16$, then there are two chosen numbers such that one of them is divisible by the other.}
+Choose $100$ integers from $1, 2, \ldots, 200$ such that no chosen integer divides any other chosen integer. For each chosen integer $i$, let $a_i$ be the odd number such that $i = 2^{s_i} \times a_i$ for some non-negative integer $s_i$. These $a_i$ are unique, as otherwise two distinct $i$ would be divisible via the common denominator of $a_i$. Because there are $100$ possible $a_i$, then, each appears exactly once.
+
+Suppose there is some $j < 16$ among the chosen integers. As $a_j \ge 1$, the $s_i$ such that $j = 2^{s_j} \times a_j$
+must be less than $4$.
 
 \subsection*{4. Show that if $n + 1$ integers are chosen from the set $\{I, 2, \ldots, 2n\}$, then there are always two which differ by $1$.}
 
