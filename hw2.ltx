@@ -30,7 +30,22 @@ Choose $100$ integers from $1, 2, \ldots, 200$ such that no chosen integer divid
 Suppose there is some $j < 16$ among the chosen integers. As $a_j \ge 1$, the $s_i$ such that $j = 2^{s_j} \times a_j$
 must be less than $4$.
 
-\subsection*{4. Show that if $n + 1$ integers are chosen from the set $\{I, 2, \ldots, 2n\}$, then there are always two which differ by $1$.}
+\subsection*{4. Show that if $n + 1$ integers are chosen from the set $\{1, 2, \ldots, 2n\}$, then there are always two which differ by $1$.}
+Let $\{a_i\}_1^{n+1}$ be the strictly increasing sequence of integers chosen. We have
+\begin{align*}
+  1 \le a_1 < a_2 < \cdots < a_{n+1} \le 2n
+\end{align*}
+and
+\begin{align*}
+  2 \le a_1 + 1 < a_2 + 1  < \cdots < a_{n+1} + 1 \le 2n + 1.
+\end{align*}
+We thus have the $2(n + 1)$ numbers
+\begin{align*}
+  a_1, a_2, \ldots, a_{n+1}, a_1 + 1, a_2 + 1, \ldots, a_{n+1} + 1,
+\end{align*}
+each of which is an integer in $[1, 2n + 1]$, which has a size of $2n + 1$.
+
+Because there are $2(n + 1) = 2n + 2$ numbers in a range of size $2n + 1$, two of those numbers must be the same. Because $\{a_i\}_1^{n+1}$ is strictly increasing, no two elements of that sequence are the same, nor are the elements of $\{a_i + 1\}_1^{n+1}$; therefore, there are some $j, k$ such that $a_j = a_k + 1$. Thus, there are two of the chosen integers which differ by one.
 
 \subsection*{9. In a room there are $10$ people, none of whom are older than $60$ (ages are given in whole numbers only) but each of whom is at least $1$ year old. Prove that we can always find two groups of people (with no common person) the sum of whose ages is the same. Can $10$ be replaced by a smaller number?}
 
