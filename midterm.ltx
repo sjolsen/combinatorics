@@ -2,6 +2,11 @@
 \usepackage{fullpage}
 \usepackage{amsmath}
 \usepackage{amsfonts}
+\usepackage[md]{titlesec}
+
+\renewcommand\thesection{{\bf Part \Roman{section}:}}
+\renewcommand\thesubsection{{\bf\arabic{subsection}.}}
+\renewcommand\thesubsubsection{\alph{subsubsection}.}
 
 \title{MATH 4350 -- Midterm}
 \author{Stuart Olsen}
@@ -10,11 +15,46 @@
 \begin{document}
 \maketitle
 
-\section*{Part I}
-\subsection*{Answer the following for the set $S = \{1, 2, 3, 4, 5\}$.}
-\subsubsection*{a. Write two $3$-permutations of $S$ that are the same $3$-combination.}
-\subsubsection*{b. Write two $3$-permutations of $S$ that are the same cyclic $3$-permutation.}
-\subsubsection*{c. Write a $5$-permutations of $S$ that is a derangement of $S$.}
-\subsubsection*{d. Using the known formulas, count the total number of $3$-permutations, $3$-combinations, cyclic $3$-permutations, and derangements of $S$. Label each clearly.}
+
+\section{Answer all of the following short questions.}
+\subsection{Answer the following for the set $S = \{1, 2, 3, 4, 5\}$.}
+\subsubsection{Write two $3$-permutations of $S$ that are the same $3$-combination.}
+\subsubsection{Write two $3$-permutations of $S$ that are the same cyclic $3$-permutation.}
+\subsubsection{Write a $5$-permutations of $S$ that is a derangement of $S$.}
+\subsubsection{Using the known formulas, count the total number of $3$-permutations, $3$-combinations, cyclic $3$-permutations, and derangements of $S$. Label each clearly.}
+
+
+\subsection{Answer the following for the multiset $T = \{3 \cdot a, 3 \cdot b, 4 \cdot c\}$.}
+\subsubsection{How many permutations of $T$ are there?}
+\subsubsection{How many $3$-combinations of $T$ are there?}
+
+
+\subsection{How many people are required to guarantee that two are born on the same day?}
+
+
+\subsection{A group of $4$ men and $6$ women is to form a committee consisting of $5$ members.}
+\subsubsection{How many committees can be formed?}
+\subsubsection{How many committees can be formed if there must be at least $2$ men or at least $2$ women?}
+
+
+\subsection{}
+\subsubsection{Find the coefficient of the $x^6$ term of $(x-2)^7$ using the binomial theorem.}
+\subsubsection{Find the coefficient of the $x^4y^2$ term of $(x+y-2)^7$ using the multinomial theorem.}
+
+
+\subsection{How many integers between $1$ and $200$ are not divisible by $3$, $5$, and $7$?}
+
+
+\subsection{Prove that for all real numbers $r$ and integers $k$ the following relationship holds:}
+\begin{align*}
+  {{-r} \choose {k}} &= (-1)^k {{r + k - 1} \choose {k}}\\
+\end{align*}
+
+
+
+\section{Answer any {\em three} of the following questions.}
+% \subsection{}
+% \subsubsection{State the binomial theorem.}
+% \subsubsection{Provide an algebraic proof that $\sum\limits_{k=0}^n{\frac{{n \choose k}}{k + 1}} = \frac{2^{n+1} - 1}{n + 1}$.}
 
 \end{document}
