@@ -27,11 +27,10 @@ It is not possible to prove that there is a succession of days during which the 
 \subsection*{2. Concerning Application 5, show that if $100$ integers are chosen from $1, 2, \ldots, 200$, and one of the integers chosen is less than $16$, then there are two chosen numbers such that one of them is divisible by the other.}
 Choose $100$ integers from $1, 2, \ldots, 200$ such that no chosen integer divides any other chosen integer. For each chosen integer $i$, let $a_i$ be the odd number such that $i = 2^{s_i} \times a_i$ for some non-negative integer $s_i$. These $a_i$ are unique, as otherwise two distinct $i$ would be divisible via the common denominator of $a_i$. Because there are $100$ possible $a_i$, then, each appears exactly once.
 
-Suppose there is some $j < 16$ among the chosen integers. As $a_j \ge 1$, the $s_i$ such that $j = 2^{s_j} \times a_j$
-must be less than $4$.
+Suppose there is some $j < 16$ among the chosen integers. If $j$ is odd, then $j$ divides some odd number in $[16, 200]$. Then, $j$ divides some $a_i \ge 16$, and therefore a chosen integer other than $j$. This leads to a contradiction, so $j$ must be even.
 
 \subsection*{4. Show that if $n + 1$ integers are chosen from the set $\{1, 2, \ldots, 2n\}$, then there are always two which differ by $1$.}
-Let $\{a_i\}_1^{n+1}$ be the strictly increasing sequence of integers chosen. We have
+Let $\{a_i\}_{i=1}^{n+1}$ be the strictly increasing sequence of integers chosen. We have
 \begin{align*}
   1 \le a_1 < a_2 < \cdots < a_{n+1} \le 2n
 \end{align*}
@@ -45,14 +44,33 @@ We thus have the $2(n + 1)$ numbers
 \end{align*}
 each of which is an integer in $[1, 2n + 1]$, which has a size of $2n + 1$.
 
-Because there are $2(n + 1) = 2n + 2$ numbers in a range of size $2n + 1$, two of those numbers must be the same. Because $\{a_i\}_1^{n+1}$ is strictly increasing, no two elements of that sequence are the same, nor are the elements of $\{a_i + 1\}_1^{n+1}$; therefore, there are some $j, k$ such that $a_j = a_k + 1$. Thus, there are two of the chosen integers which differ by one.
+Because we have $2(n + 1) = 2n + 2$ numbers in a range of size $2n + 1$, two of those numbers must be the same. Because $\{a_i\}_{i=1}^{n+1}$ is strictly increasing, no two elements of that sequence are the same, nor are the elements of $\{a_i + 1\}_1^{n+1}$; therefore, there are some $j, k$ such that $a_j = a_k + 1$. Thus, there are two of the chosen integers which differ by one.
 
 \subsection*{9. In a room there are $10$ people, none of whom are older than $60$ (ages are given in whole numbers only) but each of whom is at least $1$ year old. Prove that we can always find two groups of people (with no common person) the sum of whose ages is the same. Can $10$ be replaced by a smaller number?}
 
 \subsection*{11. A student has $37$ days to prepare for an examination. From past experience she knows that she will require no more than $60$ hours of study. She also wishes to study at least $1$ hour per day. Show that no matter how she schedules her study time (a whole number of hours per day, however), there is a succession of days during which she will have studied exactly $13$ hours.}
+Let $\{a_i\}_{i=1}^{37}$ be the total number of hours studied on the days up to and including day $i$. We have
+\begin{align*}
+  1 \le a_1 < a_2 < \cdots < a_{37} \le 60
+\end{align*}
+and
+\begin{align*}
+  14 \le a_1 + 13 < a_2  + 13< \cdots < a_{37} + 13 \le 73.
+\end{align*}
+We then have the $74$ numbers
+\begin{align*}
+  a_1, a_2, \ldots, a_{37}, a_1 + 13, a_2 + 13, \ldots, a_{37} + 13,
+\end{align*}
+each of which is an integer in $[1, 73]$, which has a size of $73$.
+
+Because we have $74$ numbers in a range of size $73$, two of those numbers must be the same. Because $\{a_i\}_{i=1}^{37}$ is strictly increasing, no two elements of that sequence are the same, nor are the elements of $\{a_i + 1\}_1^{37}$; therefore, there are some $j, k$ such that $a_j = a_k + 13$. Thus, there are two of the chosen integers which differ by $13$, and so there is some succession of days during which she will have studied exactly $13$ hours.
 
 \subsection*{12. Show by example that the conclusion of the Chinese remainder theorem (Application 6) need not hold when $m$ and $n$ are not relatively prime.}
+Consider the case where $m = 2$, $n = 2$, $a = 0$, and $b = 1$. $m$ and $n$ are not relatively prime. Note that $m$ and $a$ generate exactly the even numbers and $n$ and $b$ exactly the odd. Therefore, because no number is both odd and even, there is no $x$ such that there exist some $p, q$ such that $x = pm + a = qn + b$.
+
+Thus, the Chinese remainder theorem does not necessarily hold for numbers which are not relatively prime.
 
 \subsection*{14. A bag contains $100$ apples, $100$ bananas, $100$ oranges, and $100$ pears. If I pick one piece of fruit out of the bag every minute, how long will it be before I am assured of having picked at least a dozen pieces of fruit of the same kind?}
+After $12 + 12 + 12 + 12 - 4 + 1 = 45$ minutes, by the strong form of the pigeonhole principle, you will have either $12$ apples, $12$ bananas, $12$ oranges, or $12$ pears. After $44$ minutes, it is possible to have picked only $11$ of each fruit. Therefore, it will be $45$ minutes before you are assured of having picked at least a dozen pieces of fruit of the same kind.
 
 \end{document}
