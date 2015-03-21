@@ -143,5 +143,22 @@ We proceed by case analysis on $k$:
 % \subsection{}
 % \subsubsection{State the binomial theorem.}
 % \subsubsection{Provide an algebraic proof that $\sum\limits_{k=0}^n{\frac{{n \choose k}}{k + 1}} = \frac{2^{n+1} - 1}{n + 1}$.}
+\setcounter{subsection}{1}
+\subsection{Answer the following for the grid below.}
+\subsubsection{How many shortest paths are there from $A$ to $B$?}
+Each shortest path will consist of $4$ steps north and $8$ steps east. Because the paths differ only in the order in which the steps are taken and two steps in a given direction are indistinguishable, the paths are best modeled as permutations of the multiset $\{4 \cdot N, 8 \cdot E\}$. The number of shortest paths is then
+\begin{align*}
+  \frac{(4+8)!}{4!\,8!} &= \frac{12!}{4!\,8!} = 495.
+\end{align*}
+
+\subsubsection{How many shortest paths are there from $A$ to $C$ to $B$?}
+By the same construction as above, there are $\frac{(1+4)!}{1!\,4!} = 5$ shortest paths from $A$ to $C$ and $\frac{(3+4)!}{3!\,4!} = 35$ shortest paths from $C$ to $B$.
+
+Because each shortest path from $A$ to $C$ to $B$ is comprised of a shortest path from $A$ to $C$ and a shortest path from $C$ to $B$, there are $5 \cdot 35 = 175$ shortest paths from $A$ to $C$ to $B$.
+
+\subsubsection{How many shortest paths are there from $A$ to $B$ not passing through $C$ or $D$?}
+By the same construction as above, there are $\frac{(2+6)!}{2!\,6!} \cdot \frac{(2+2)!}{2!\,2!} = 168$ shortest paths from $A$ to $D$ to $B$ and $\frac{(1+4)!}{1!\,4!} \cdot \frac{(1+2)!}{1!\,2!} \cdot \frac{(2+2)!}{2!\,2!} = 90$ shortest paths from $A$ to $C$ to $D$ to $B$.
+
+By the inclusion-exclusion principle, the number of shortest paths from $A$ to $B$ which do not pass through $C$ or $D$ is then $495 - (175 + 168 - 90) = 242$.
 
 \end{document}
