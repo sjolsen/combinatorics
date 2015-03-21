@@ -2,6 +2,7 @@
 \usepackage{fullpage}
 \usepackage{amsmath}
 \usepackage{amsfonts}
+\usepackage{mathtools}
 \usepackage[md]{titlesec}
 
 \renewcommand\thesection{{\bf Part \Roman{section}:}}
@@ -94,12 +95,47 @@ By excluding the choices giving zero or one men and those giving zero or one wom
 
 
 \subsection{How many integers between $1$ and $200$ are not divisible by $3$, $5$, and $7$?}
+The integers which {\em are} divisible by $3$, $5$, and $7$ are exactly those divisible by $\mathrm{lcm}(3, 5, 7) = 105$. There is one such integer between $1$ and $200$: $105$. Then, the number of integers between $1$ and $200$ {\em not} divisible by $3$, $5$, and $7$ is $|(1, 200)| - 1 = 198 - 1 = 197$.
 
 
 \subsection{Prove that for all real numbers $r$ and integers $k$ the following relationship holds:}
 \begin{align*}
   {{-r} \choose {k}} &= (-1)^k {{r + k - 1} \choose {k}}
 \end{align*}
+
+For $r \in \mathbb{R}$ and $k \in \mathbb{Z}$, we have
+\begin{align*}
+  {r \choose k} = \begin{dcases*}
+    \frac{r(r-1)\cdots(r-k+1)}{k!} & if $k \ge 1$\\
+    1 & if $k = 0$\\
+    0 & if $k \le -1$.\\
+  \end{dcases*}
+\end{align*}
+
+We proceed by case analysis on $k$:
+\begin{itemize}
+\item $k \le -1$:
+  \begin{align*}
+    {{-r} \choose {k}} &= 0\\
+    &= (-1)^k \cdot 0\\
+    &= (-1)^k {{r + k - 1} \choose {k}}
+  \end{align*}
+\item $k = 0$:
+  \begin{align*}
+    {{-r} \choose {k}} &= 1\\
+    &= 1 \cdot 1\\
+    &= (-1)^k \cdot 1\\
+    &= (-1)^k {{r + k - 1} \choose {k}}\\
+  \end{align*}
+\item $k \ge 1$:
+  \begin{align*}
+    {{-r} \choose {k}} &= \frac{-r(-r-1)\cdots(-r-k+1)}{k!}\\
+    &= \frac{(-r-k+1)(-r-k+2)\cdots{-r}}{k!}\\
+    &= (-1)^k \frac{(r+k-1)(r+k-2)\cdots{r}}{k!}\\
+    &= (-1)^k \frac{(r+k-1)((r+k-1)-1)\cdots((r+k-1)-k+1)}{k!}\\
+    &= (-1)^k {{r + k - 1} \choose {k}}
+  \end{align*}
+\end{itemize}
 
 
 
