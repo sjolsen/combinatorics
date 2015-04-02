@@ -97,6 +97,11 @@ In any case, the given expression evaluates to $(-9)^n$.
     k{n \choose k} = n{{n-1} \choose {k-1}}.
   \end{align*}
 }
+Suppose you wish to select two disjoint subsets of a set $S$ of cardinality $n$: one of cardinality $1$, and one of cardinality $k-1$. One way to do this is to select $k$ elements of $S$, then move one picked element into its own subset; the first action can be performed in ${n \choose k}$ ways and the second in $k$ ways, so there are $k{n \choose k}$ ways to make the desired selection.
+
+It is also possible to make the desired selection by first choosing the singleton element from $S$ --- there are $n$ ways to do this --- and then choosing the other $k-1$ from the remaining $n-1$ elements of $S$ --- there are ${{n-1} \choose {k-1}}$ ways to do this. Together, there are then $n{{n-1} \choose {k-1}}$ ways of making the desired selection this way.
+
+Because $k{n \choose k}$ and $n{{n-1} \choose {k-1}}$ count the same thing, $k{n \choose k} = n{{n-1} \choose {k-1}}$.
 
 
 \problem{11}{
