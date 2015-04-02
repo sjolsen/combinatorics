@@ -10,6 +10,7 @@
 \newcommand{\problem}[2]{%
   \setcounter{subsection}{\the\numexpr#1-1}%
   \subsection{}{\parbox[t]{\textwidth}{\large #2}}%
+  \vspace{\baselineskip}%
 }
 
 
@@ -25,10 +26,23 @@
 \problem{4}{
   Expand $(x+y)^5$ and $(x+y)^6$ using the binomial theorem.
 }
+The binomial theorem gives
+\begin{align*}
+  (x+y)^5 &= \sum_{k=0}^5{{5 \choose k}x^{5-k}y^k}\\
+          &= {5 \choose 0}x^{5} + {5 \choose 1}x^{4}y^1 + {5 \choose 2}x^{3}y^2 + {5 \choose 3}x^{2}y^3 + {5 \choose 4}x^{1}y^4 + {5 \choose 5}y^5
+\end{align*}
+and
+\begin{align*}
+  (x+y)^6 &= \sum_{k=0}^6{{6 \choose k}x^{6-k}y^k}\\
+          &= {6 \choose 0}x^{6} + {6 \choose 1}x^{5}y^1 + {6 \choose 2}x^{4}y^2 + {6 \choose 3}x^{3}y^3 + {6 \choose 4}x^{2}y^4 + {6 \choose 5}x^1y^5 + {6 \choose 6}y^6.
+\end{align*}
+
 
 \problem{6}{
   What is the coefficient of $x^5y^{13}$ in the expansion of $(3x-2y)^{18}$? What is the coefficient of $x^8y^9$?
 }
+The coefficient of $x^5y^{13}$ in the expansion of $(3x-2y)^{18}$ is given by ${18 \choose 13}$. The coefficient of $x^8y^9$ is zero as there is no $k$ such that $18-k=8$ and $k=9$.
+
 
 \problem{7}{
   Use the binomial theorem to prove that
@@ -41,6 +55,18 @@
   \end{align*}
   for any real number $r$.
 }
+We may rewrite:
+\begin{align*}
+  3^n &= (1+2)^n\\
+      &= \sum_{k=0}^n{{n \choose k}1^{n-k}2^k}\\
+      &= \sum_{k=0}^n{{n \choose k}2^k}.
+\end{align*}
+Generalizing to any real number $r$ in the reverse direction:
+\begin{align*}
+  \sum_{k=0}^n{{n \choose k}r^k} &= \sum_{k=0}^n{{n \choose k}1^{n-k}r^k}\\
+                                 &= (1+r)^n.
+\end{align*}
+
 
 \problem{9}{
   Evaluate the sum
@@ -48,10 +74,30 @@
     \sum_{k=0}^n{(-1)^k}{n \choose k}10^k.
   \end{align*}
 }
+If $n$ is even:
+\begin{align*}
+  \sum_{k=0}^n{(-1)^k}{n \choose k}10^k &= \sum_{k=0}^n{{n \choose k}(-1)^{n-k}10^k}\\
+                                        &= (-1+10)^n\\
+                                        &= 9^n\\
+                                        &= (-9)^n.
+\end{align*}
+If $n$ is odd:
+\begin{align*}
+  \sum_{k=0}^n{(-1)^k}{n \choose k}10^k &= -\sum_{k=0}^n{{n \choose k}(-1)^{n-k}10^k}\\
+                                        &= -(-1+10)^n\\
+                                        &= -9^n\\
+                                        &= (-9)^n.
+\end{align*}
+In any case, the given expression evaluates to $(-9)^n$.
+
 
 \problem{10}{
-  Use {\em combinatorial} reasoning to prove the identity (5.2).
+  Use {\em combinatorial} reasoning to prove the identity
+  \begin{align*}
+    k{n \choose k} = n{{n-1} \choose {k-1}}.
+  \end{align*}
 }
+
 
 \problem{11}{
   Use {\em combinatorial} reasoning to prove the identity (in the form given)
@@ -60,13 +106,16 @@
   \end{align*}
 }
 
+
 \problem{38}{
   Use the multinomial theorem to expand $(x_1 + x_2 + x_3)^4$.
 }
 
+
 \problem{40}{
   What is the coefficient of $x_1^3x_2^3x_3x_4^2$ in the expansion of $(x_1 - x_2 + 2x_3 - 2x_4)^9$?
 }
+
 
 \problem{46}{
   Use Newton's binomial theorem to approximate $\sqrt{30}$.
