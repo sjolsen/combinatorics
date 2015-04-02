@@ -2,6 +2,16 @@
 \usepackage{fullpage}
 \usepackage{amsmath}
 \usepackage{amsfonts}
+\usepackage{titlesec}
+
+\renewcommand{\thesubsection}{\arabic{subsection}}
+\titleformat{\subsection}[runin]{\normalfont\large\bfseries}{\thesubsection.}{0em}{}[]
+
+\newcommand{\problem}[2]{%
+  \setcounter{subsection}{\the\numexpr#1-1}%
+  \subsection{}{\parbox[t]{\textwidth}{\large #2}}%
+}
+
 
 \title{MATH 4350 -- Homework 3}
 \author{Stuart Olsen}
@@ -10,6 +20,57 @@
 \begin{document}
 \maketitle
 
+
+\section*{Chapter 5.7}
+\problem{4}{
+  Expand $(x+y)^5$ and $(x+y)^6$ using the binomial theorem.
+}
+
+\problem{6}{
+  What is the coefficient of $x^5y^{13}$ in the expansion of $(3x-2y)^{18}$? What is the coefficient of $x^8y^9$?
+}
+
+\problem{7}{
+  Use the binomial theorem to prove that
+  \begin{align*}
+    3^n = \sum_{k=0}^n{{n \choose k}2^k}.
+  \end{align*}
+  Generalize to find the sum
+  \begin{align*}
+    \sum_{k=0}^n{{n \choose k}r^k}
+  \end{align*}
+  for any real number $r$.
+}
+
+\problem{9}{
+  Evaluate the sum
+  \begin{align*}
+    \sum_{k=0}^n{(-1)^k}{n \choose k}10^k.
+  \end{align*}
+}
+
+\problem{10}{
+  Use {\em combinatorial} reasoning to prove the identity (5.2).
+}
+
+\problem{11}{
+  Use {\em combinatorial} reasoning to prove the identity (in the form given)
+  \begin{align*}
+    {n \choose k} - {{n-3} \choose {k}} = {{n-1} \choose {k-1}} + {{n-2} \choose {k-1}} + {{n-3} \choose {k-1}}.
+  \end{align*}
+}
+
+\problem{38}{
+  Use the multinomial theorem to expand $(x_1 + x_2 + x_3)^4$.
+}
+
+\problem{40}{
+  What is the coefficient of $x_1^3x_2^3x_3x_4^2$ in the expansion of $(x_1 - x_2 + 2x_3 - 2x_4)^9$?
+}
+
+\problem{46}{
+  Use Newton's binomial theorem to approximate $\sqrt{30}$.
+}
 
 
 \end{document}
