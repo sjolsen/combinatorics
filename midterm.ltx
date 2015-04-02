@@ -140,10 +140,36 @@ We proceed by case analysis on $k$:
 
 
 \section{Answer any {\em three} of the following questions.}
-% \subsection{}
-% \subsubsection{State the binomial theorem.}
-% \subsubsection{Provide an algebraic proof that $\sum\limits_{k=0}^n{\frac{{n \choose k}}{k + 1}} = \frac{2^{n+1} - 1}{n + 1}$.}
-\setcounter{subsection}{1}
+\subsection{}
+\subsubsection{State the binomial theorem.}
+Let $n$ be a positive integer. Then, for all $x$ and $y$,
+\begin{align*}
+  (x+y)^n = \sum_{k=0}^n{{n \choose k} x^{n-k}y^k}.
+\end{align*}
+
+\subsubsection{Provide an algebraic proof that $\sum\limits_{k=0}^n{\frac{{n \choose k}}{k + 1}} = \frac{2^{n+1} - 1}{n + 1}$.}
+We proceed using proof by induction on $n$:
+\begin{itemize}
+\item $n = 0$:
+  \begin{align*}
+    \sum_{k=0}^n{\frac{{n \choose k}}{k + 1}} &= \frac{{0 \choose 0}}{0 + 1}\\
+                                              &= \frac{1}{n+1}\\
+                                              &= \frac{2^{1}-1}{n+1}\\
+                                              &= \frac{2^{n+1}-1}{n+1}.
+  \end{align*}
+\item $n > 1$:
+
+We have as the inductive hypothesis $\sum\limits_{k=0}^n{\frac{{n \choose k}}{k + 1}} = \frac{2^{n+1} - 1}{n + 1}$ and show $\sum\limits_{k=0}^{n+1}{\frac{{n+1 \choose k}}{k + 1}} = \frac{2^{(n+1)+1} - 1}{(n+1) + 1}$:
+\begin{align*}
+  \sum_{k=0}^{n+1}{\frac{{n+1 \choose k}}{k + 1}} &= \sum_{k=0}^{n+1}{\frac{\frac{(n+1)!}{k!(n+1-k)!}}{k + 1}}\\
+                                                  &= \sum_{k=0}^{n+1}{\frac{n+1}{k+1}\cdot\frac{n!}{k!(n+1-k)!}}\\
+                                                  &= \sum_{k=0}^{n+1}{\frac{n+1}{(k+1)(n+1-k)}\cdot\frac{n!}{k!(n-k)!}}\\
+                                                  &= \sum_{k=0}^{n+1}{\frac{n+1}{(k+1)(n+1-k)}\cdot{n \choose k}}\\
+                                                  &= \sum_{k=0}^{n+1}{\frac{n+1}{n+1-k}\cdot\frac{{n \choose k}}{k+1}}\\
+\end{align*}
+\end{itemize}
+
+
 \subsection{Answer the following for the grid below.}
 \subsubsection{How many shortest paths are there from $A$ to $B$?}
 Each shortest path will consist of $4$ steps north and $8$ steps east. Because the paths differ only in the order in which the steps are taken and two steps in a given direction are indistinguishable, the paths are best modeled as permutations of the multiset $\{4 \cdot N, 8 \cdot E\}$. The number of shortest paths is then
