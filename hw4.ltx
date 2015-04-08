@@ -1,6 +1,7 @@
 \documentclass{article}
 \usepackage{fullpage}
 \usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{amsfonts}
 \usepackage{titlesec}
 
@@ -21,6 +22,14 @@
   \vspace{\baselineskip}%
 }
 
+\newcommand{\card}[1]{\left\lvert#1\right\rvert}
+\newcommand{\pset}{\mathcal{P}}
+\newcommand{\suchthat}{:}
+\newcommand{\divides}{\mathbin{|}}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\renewcommand{\emptyset}{\varnothing}
+\DeclareMathOperator{\lcm}{lcm}
+
 
 \title{MATH 4350 -- Homework 4}
 \author{Stuart Olsen}
@@ -34,6 +43,45 @@
 \problem{1}{
   Find the number of integers between $1$ and $10000$ inclusive that are not divisible by $4$, $5$, or $6$.
 }
+% (labels ((divides (a b)
+%            (zerop (nth-value 1 (floor b a)))))
+%   (loop
+%      for i from 1 to 10000
+%      when (notany (lambda (j) (divides j i)) '(4 5 6))
+%      counting 1))
+% => 5334
+
+Theorem 6.1.1 gives us that this number is given by
+\begin{align*}
+  \card{S} - \sum_{\{i\} \in \pset_1(J)}\card{A_i} + \sum_{\{i, j\} \in \pset_2(J)}\card{A_i \cap A_j} - \sum_{\{i, j, k\} \in \pset_3(J)}\card{A_i \cap A_j \cap A_k}
+\end{align*}
+where $S = \{1, \ldots, 10000\}$, $A_i = \{x \in S \suchthat i \divides x\}$, $J = \{4,5,6\}$, and $\pset_\kappa(X) = \{X^\prime \in \pset(X) \suchthat \card{X^\prime} = \kappa\}$.
+
+The cardinality of $S$ is $10000$ and those of $A_i$ are given by $\floor{\frac{\card{S}}{i}}$:
+\begin{align*}
+  \card{A_4} &= \floor{\frac{10000}{4}} = 2500;\\
+  \card{A_5} &= \floor{\frac{10000}{5}} = 2000;\\
+  \card{A_6} &= \floor{\frac{10000}{6}} = 1666.
+\end{align*}
+Further, the cardinalities of $\bigcap_{i \in J^\prime}{A_i}$ for $J^\prime$ in $\pset_{\ge2}(J)$ are given by $\card{A_{\lcm(J^\prime)}}$:
+\begin{align*}
+  \card{A_4 \cap A_5} &= \card{A_{20}} = \floor{\frac{10000}{20}} = 500;\\
+  \card{A_4 \cap A_6} &= \card{A_{12}} = \floor{\frac{10000}{12}} = 833;\\
+  \card{A_5 \cap A_6} &= \card{A_{30}} = \floor{\frac{10000}{30}} = 333;\\
+  \card{A_4 \cap A_5 \cap A_6} &= \card{A_{60}} = \floor{\frac{10000}{60}} = 166.
+\end{align*}
+Then, the number of integers between $1$ and $10000$ inclusive that are not divisible by $4$, $5$, or $6$ is given by
+\begin{align*}
+  &\begin{aligned}
+    10000 &- \left( 2500 + 2000 + 1666 \right)\\
+    &+ \left( 500 + 833 + 333 \right)\\
+    &- \left( 166 \right)
+  \end{aligned}\\
+  =\ &\begin{aligned}
+    10000 - 6166 + 1666 - 166
+  \end{aligned}\\
+  =\ &\begin{aligned}5334\end{aligned}.
+\end{align*}
 
 
 \problem{4}{
