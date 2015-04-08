@@ -2,6 +2,19 @@
 \usepackage{fullpage}
 
 
+\usepackage{environ}
+\NewEnviron{caselist}{%
+  \begin{itemize}%
+    \BODY%
+  \end{itemize}%
+}
+\newcommand{\case}[2]{%
+  \item {#1}:
+
+    {#2}%
+}
+
+
 \title{MATH 4350 -- Problem Set 2}
 \author{Stuart Olsen}
 
@@ -13,6 +26,35 @@
 \problem{2}{
   Concerning Application 5, show that if $100$ integers are chosen from $\{1, 2, \ldots, 200\}$ and one of the integers chosen is less than $16$, then there are two chosen numbers such that one of them is divisible by the other.
 }
+Let $S$ be a set of $100$ integers chosen from $\{1, 2, \ldots, 200\}$ and indexed by some set $J$. Each element of $S$ may be written in the form $2^k \times a$, where $k$ is a nonnegative integer and $a$ is odd; let $k_i$ and $a_i$ denote this $k$ and $a$ for each $x_i$ in $S$, respectively.
+
+Consider whether there exist distinct $i, j \in J$ such that $a_i = a_j$:
+\begin{caselist}
+  \case{yes ($i$, $j$)}{
+    Consider whether $k_i \ge k_j$:
+    \begin{caselist}
+      \case{yes}{
+        Because $k_i \ge k_j$, there is some nonnegative integer $d$ such that $k_i = k_j + d$. Then,
+        %%% FIXME: Center
+        \begin{align*}
+          x_i &= 2^{k_i} \times a_i\\
+              &= 2^{k_j + d} \times a_i\\
+              &= 2^{k_j + d} \times a_j\\
+              &= 2^d (2^{k_j} \times a_j)\\
+              &= 2^d x_j.
+        \end{align*}
+        Because $d$ is a nonnegative integer, so is $2^d$; then, $x_j \divides x_i$.
+      }
+      \case{no}{
+        Because $k_i \ngeq k_j$, $k_j \ge k_i$; by congruent reasoning to the above, $x_i \divides x_j$.
+      }
+    \end{caselist}
+    In either case, there are two chosen numbers such that one divides the other.
+  }
+
+  \case{no}{
+  }
+\end{caselist}
 
 
 \problem{8}{
