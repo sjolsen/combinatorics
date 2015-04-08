@@ -56,11 +56,19 @@ Consider whether there exist distinct $i, j \in J$ such that $a_i = a_j$:
   \case{no ($\nqsome{i,j\in J}{a_i=a_j}$)}{
     There are no two $i, j \in J$ such that $a_i = a_j$, so there are $100$ distinct $a_i$. Then, because there are $100$ odd numbers in $\{1, 2, \ldots, 200\}$, each such odd number appears as exactly one $a_i$.
 
-    Consider whether $x$ is odd:
+    Consider the following exhaustive cases of $x$:
     \begin{caselist}
-      \case{yes ($x$ is odd)}{
+      \case{$x \in \{1\}$}{
+        $x$ divides every other element of $S$; pick one.
       }
-      \case{no ($x$ is even)}{
+      \case{$x \in \{3, 5, 7, 9, 11, 13, 15\}$}{
+        $13x$ is odd, greater than $15$, and less than $200$; therefore, there is some $i$ such that $s_i = 2^{k_i} \times 13x$, and thus that $x \divides s_i$.
+      }
+      \case{$x \in \{2, 4, 8\}$}{
+      }
+      \case{$x \in \{6, 10, 14\}$}{
+      }
+      \case{$x \in \{12\}$}{
       }
     \end{caselist}
   }
