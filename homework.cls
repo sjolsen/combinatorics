@@ -19,7 +19,9 @@
 \newlength\secprewidth
 \newlength\sectextwidth
 
-\newcommand{\problem}[2]{%
+\def\problem{\@ifstar\@problemstar\@problem}
+
+\newcommand{\@problem}[2]{%
   \setcounter{subsection}{\the\numexpr#1-1}%
   \savebox{\secindentbox}{\normalfont\large\bfseries #1.\ \hspace{1.95831pt}}%
   \settowidth{\secprewidth}{\usebox{\secindentbox}}%
@@ -27,6 +29,10 @@
   \addtolength{\sectextwidth}{-\secprewidth}%
   \subsection{}{\parbox[t]{\sectextwidth}{\large #2}}%
   \vspace{\baselineskip}%
+}
+
+\newcommand{\@problemstar}[1]{%
+  {\large #1}%
 }
 
 \newcommand{\subproblem}[1]{%
