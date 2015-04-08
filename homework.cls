@@ -39,7 +39,9 @@
   \subsubsection{}{#1}%
 }
 
-%% Math tools
+
+
+%%% Math tools
 \newcommand{\card}[1]{\left\lvert#1\right\rvert}
 \newcommand{\pset}{\mathcal{P}}
 \newcommand{\suchthat}{:}
@@ -49,3 +51,12 @@
 \DeclareMathOperator{\lcm}{lcm}
 \newcommand{\answer}[1]{\boxed{#1}}
 \newcommand{\compl}[1]{\overline{#1}}
+
+%% Quantification
+\newcommand{\quantify}[3]{%
+  {#1}\,{#2}.\,{#3}%
+}
+\newcommand{\qsome}[2]{\quantify{\exists}{#1}{#2}}
+\newcommand{\nqsome}[2]{\quantify{\nexists}{#1}{#2}}
+\newcommand{\qall}[2]{\quantify{\forall}{#1}{#2}}
+% FIXME: \nqall
