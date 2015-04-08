@@ -65,8 +65,18 @@ Consider whether there exist distinct $i, j \in J$ such that $a_i = a_j$:
         $13x$ is odd, greater than $15$, and less than $200$; therefore, there is some $i$ such that $s_i = 2^{k_i} \times 13x$, and thus that $x \divides s_i$.
       }
       \case{$x \in \{2, 4, 8\}$}{
+        There are some $i, j, l, m \in J$ such that $a_i = 81$, $a_j = 27$, $a_l = 9$, and $a_m = 3$. If $k_j < 1$, then $s_j \divides s_i$; otherwise, if $k_l < 2$, then $s_l \divides s_j$; otherwise, if $k_m < 3$, then $s_m \divides s_l$; otherwise, $k_m$ is at least $3$, so $8 \divides s_m$, and so $x \divides s_m$.
       }
       \case{$x \in \{6, 10, 14\}$}{
+        Let $i$ be the element of $J$ such that $x = s_i$. Note that $3a_i$ is an odd number between $1$ and $200$. Consider whether $3a_i \in S$:
+        \begin{caselist}
+          \case{$3a_i \in S$}{
+            Let $j$ be the element of $J$ such that $3a_i = s_j$. Note that $3s_j$ is an odd number between $1$ and $200$. Then, there is some $l \in J$ such that $a_l = 3s_j$, and thus that $s_j \divides a_l$, and thus that $s_j \divides s_l$.
+          }
+          \case{$3a_i \notin S$}{
+            Let $j$ be the element of $J$ such that $3a_i = a_j$. Then, because $a_j \notin S$, $k_j > 0$, and so $2a_j \divides s_j$, and so $6a_i \divides s_j$. Because each of $\{6, 10, 14\}$ is of the form $2^1 \times a$, we have $3s_i \divides s_j$, and thus $s_i \divides s_j$.
+          }
+        \end{caselist}
       }
       \case{$x \in \{12\}$}{
       }
