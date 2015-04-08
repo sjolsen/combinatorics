@@ -201,6 +201,22 @@ Because $\card{\bigcap_{i \in J^\prime}A_i}$ is the same for all $J^\prime \in \
 \problem{11}{
   Determine the number of permutations of $\{1, 2, \ldots, 8\}$ in which no even integer is in its natural position.
 }
+This problem corresponds to the nonattacking rooks problem of theorem 6.4.1, where $n=8$ as there are eight positions in the sequence and $r_k = {4 \choose k}$ as there are exactly four ``forbidden'' positions ($(2,2)$, $(4,4)$, $(6,6)$, and $(8,8)$), all with no interdependencies. The theorem then gives the number of rook placements (and thus permutations) as
+\begin{align*}
+  \sum_{k=0}^n{(-1)^kr_k(n-k)!},
+\end{align*}
+which expands to
+\begin{align*}
+  {4 \choose 0} \cdot 8! - {4 \choose 1} \cdot 7! + {4 \choose 2} \cdot 6! - {4 \choose 3} \cdot 5! + {4 \choose 4} \cdot 4!,
+\end{align*}
+as $r_k = 0$ for $k>4$. Thus, the number of permutations is
+\begin{align*}
+  &1 \cdot 8! - 4 \cdot 7! + 6 \cdot 6! - 4 \cdot 5! + 1 \cdot 4!\\
+  =\ &1 \cdot 40320 - 4 \cdot 5040 + 6 \cdot 720 - 4 \cdot 120 + 1 \cdot 24\\
+  =\ &40320 - 20160 + 4320 - 480 + 24\\
+  =\ &\answer{24024}.
+\end{align*}
+
 
 
 \problem{15}{
