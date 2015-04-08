@@ -4,9 +4,12 @@
 \usepackage{amssymb}
 \usepackage{amsfonts}
 \usepackage{titlesec}
+\usepackage{enumitem}
 
 \renewcommand{\thesubsection}{\arabic{subsection}}
+\renewcommand{\thesubsubsection}{\alph{subsubsection}}
 \titleformat{\subsection}[runin]{\normalfont\large\bfseries}{\thesubsection.}{0em}{}[]
+\titleformat{\subsubsection}[runin]{}{(\thesubsubsection)}{0em}{}[]
 
 \newsavebox\secindentbox
 \newlength\secprewidth
@@ -22,6 +25,10 @@
   \vspace{\baselineskip}%
 }
 
+\newcommand{\subproblem}[1]{%
+  \subsubsection{}{#1}%
+}
+
 \newcommand{\card}[1]{\left\lvert#1\right\rvert}
 \newcommand{\pset}{\mathcal{P}}
 \newcommand{\suchthat}{:}
@@ -33,7 +40,6 @@
 \newcommand{\compl}[1]{\overline{#1}}
 
 \allowdisplaybreaks
-\newcommand{\subsectionbreak}{\clearpage}
 
 
 \title{MATH 4350 -- Homework 4}
@@ -218,14 +224,18 @@ as $r_k = 0$ for $k>4$. Thus, the number of permutations is
 \end{align*}
 
 
-
 \problem{15}{
   At a party, seven gentlemen check their hats. In how many ways can their hats be returned so that
-  \begin{enumerate}
+  \begin{enumerate}[label=(\alph*)]
   \item no gentleman receives his own hat?
   \item at least one of the gentlemen receives his own hat?
   \item at least two of the gentlemen receive their own hats?
   \end{enumerate}
+}
+\subproblem{$D_7 = \answer{1854}$.}
+\subproblem{$7! - D_7 = \answer{3186}$.}
+\subproblem{
+  This count can be formed from count (b) by excluding the ways in which exactly one gentleman receives his own hat; those can be counted by fixing one hat in its own position and deranging the rest. Thus, the number of ways to form this count is $7! - D_7 - 7 \cdot D_6 = \answer{1331}$.
 }
 
 
