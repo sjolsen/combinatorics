@@ -4,7 +4,6 @@
 \usepackage{amssymb}
 \usepackage{amsfonts}
 \usepackage{titlesec}
-\usepackage{tikz}
 
 \renewcommand{\thesubsection}{\arabic{subsection}}
 \titleformat{\subsection}[runin]{\normalfont\large\bfseries}{\thesubsection.}{0em}{}[]
@@ -23,17 +22,6 @@
   \vspace{\baselineskip}%
 }
 
-\usetikzlibrary{calc}
-\newcommand{\tikzmark}[1]{\tikz[overlay,remember picture]\node(#1){};}
-\newcommand{\overbox}[1]{%
-  \tikzmark{bl}%
-  #1%
-  \tikzmark{br}%
-  \tikz[overlay,remember picture]{%
-    \draw ($(bl)+(-0.2em,1em)$) rectangle ($(br)+(0.2em,-0.4em)$);%
-  }%
-}
-
 \newcommand{\card}[1]{\left\lvert#1\right\rvert}
 \newcommand{\pset}{\mathcal{P}}
 \newcommand{\suchthat}{:}
@@ -41,7 +29,7 @@
 \newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
 \renewcommand{\emptyset}{\varnothing}
 \DeclareMathOperator{\lcm}{lcm}
-\newcommand{\answer}[1]{\overbox{#1}}
+\newcommand{\answer}[1]{\boxed{#1}}
 \newcommand{\compl}[1]{\overline{#1}}
 
 \allowdisplaybreaks
