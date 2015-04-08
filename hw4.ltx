@@ -1,0 +1,67 @@
+\documentclass{article}
+\usepackage{fullpage}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{titlesec}
+
+\renewcommand{\thesubsection}{\arabic{subsection}}
+\titleformat{\subsection}[runin]{\normalfont\large\bfseries}{\thesubsection.}{0em}{}[]
+
+\newsavebox\secindentbox
+\newlength\secprewidth
+\newlength\sectextwidth
+
+\newcommand{\problem}[2]{%
+  \setcounter{subsection}{\the\numexpr#1-1}%
+  \savebox{\secindentbox}{\normalfont\large\bfseries #1.\ \hspace{1.95831pt}}%
+  \settowidth{\secprewidth}{\usebox{\secindentbox}}%
+  \setlength{\sectextwidth}{\textwidth}%
+  \addtolength{\sectextwidth}{-\secprewidth}%
+  \subsection{}{\parbox[t]{\sectextwidth}{\large #2}}%
+  \vspace{\baselineskip}%
+}
+
+
+\title{MATH 4350 -- Homework 4}
+\author{Stuart Olsen}
+\date{April 8, 2015}
+
+\begin{document}
+\maketitle
+
+
+\section*{Chapter 6.7}
+\problem{1}{
+  Find the number of integers between $1$ and $10000$ inclusive that are not divisible by $4$, $5$, or $6$.
+}
+
+
+\problem{4}{
+  Determine the number of $12$-combinations of the multiset
+  \begin{align*}
+    S = \{4 \cdot a, 3 \cdot b, 4 \cdot c, 5 \cdot d\}.
+  \end{align*}
+}
+
+
+\problem{8}{
+  Determine the number of solutions of the equation $x_1 + x_2 + x_3 + x_4 + x_5 = 14$ in positive integers $x_1$, $x_2$, $x_3$, $x_4$, and $x_5$ not exceeding $5$.
+}
+
+
+\problem{11}{
+  Determine the number of permutations of $\{1, 2, \ldots, 8\}$ in which no even integer is in its natural position.
+}
+
+
+\problem{15}{
+  At a party, seven gentlemen check their hats. In how many ways can their hats be returned so that
+  \begin{enumerate}
+  \item no gentleman receives his own hat?
+  \item at least one of the gentlemen receives his own hat?
+  \item at least two of the gentlemen receive their own hats?
+  \end{enumerate}
+}
+
+
+\end{document}
