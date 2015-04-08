@@ -5,6 +5,7 @@
 \usepackage{amsfonts}
 \usepackage{titlesec}
 \usepackage{enumitem}
+\usepackage{mathtools}
 
 \renewcommand{\thesubsection}{\arabic{subsection}}
 \renewcommand{\thesubsubsection}{\alph{subsubsection}}
@@ -67,7 +68,7 @@
 
 Theorem 6.1.1 gives us that this number is given by
 \begin{align*}
-  \card{S} - \sum_{\{i\} \in \pset_1(J)}\card{A_i} + \sum_{\{i, j\} \in \pset_2(J)}\card{A_i \cap A_j} - \sum_{\{i, j, k\} \in \pset_3(J)}\card{A_i \cap A_j \cap A_k}
+  \card{S}\ -\ \sum_{\mathclap{\{i\} \in \pset_1(J)}}\card{A_i}\ +\ \sum_{\mathclap{\{i, j\} \in \pset_2(J)}}\card{A_i \cap A_j}\ -\ \sum_{\mathclap{\{i, j, k\} \in \pset_3(J)}}\card{A_i \cap A_j \cap A_k}
 \end{align*}
 where $S = \{1, \ldots, 10000\}$, $A_i = \{x \in S \suchthat i \divides x\}$, $J = \{4,5,6\}$, and $\pset_\kappa(X) = \{X^\prime \in \pset(X) \suchthat \card{X^\prime} = \kappa\}$.
 
@@ -109,10 +110,10 @@ Then, the number of integers between $1$ and $10000$ inclusive that are not divi
 Let $S^*$ denote the extension of $S$ to infinite repetition numbers (i.e. $\{\infty \cdot a, \infty \cdot b, \infty \cdot c, \infty \cdot d\}$), $T$ the set of $12$-combinations of $S^*$, $J$ the set $\{a, b, c, d\}$, and $A_{\alpha \in J}$ the set of all elements of $T$ containing more than $k_\alpha$ $\alpha$s, where $k_\alpha$ is the repetition number of $\alpha$ in $S$. Then, the number of $12$-combinations of $S$ is given by $\card{\compl{A_a} \cap \compl{A_b} \cap \compl{A_c} \cap \compl{A_d}}$, where $\compl{A_\alpha} = T \setminus A_\alpha$. By theorem 6.1.1:
 \begin{align*}
   \card{\compl{A_a} \cap \compl{A_b} \cap \compl{A_c} \cap \compl{A_d}} &= \card{T}\\
-    &- \sum_{\{i\} \in \pset_1(J)}\card{A_i}\\
-    &+ \sum_{\{i, j\} \in \pset_2(J)}\card{A_i \cap A_j}\\
-    &- \sum_{\{i, j, k\} \in \pset_3(J)}\card{A_i \cap A_j \cap A_k}\\
-    &+ \sum_{\{i, j, k, l\} \in \pset_4(J)}\card{A_i \cap A_j \cap A_k \cap A_l}.
+    &- \sum_{\mathclap{\{i\} \in \pset_1(J)}}\card{A_i}\\
+    &+ \sum_{\mathclap{\{i, j\} \in \pset_2(J)}}\card{A_i \cap A_j}\\
+    &- \sum_{\mathclap{\{i, j, k\} \in \pset_3(J)}}\card{A_i \cap A_j \cap A_k}\\
+    &+ \sum_{\mathclap{\{i, j, k, l\} \in \pset_4(J)}}\card{A_i \cap A_j \cap A_k \cap A_l}.
 \end{align*}
 
 The cardinality of $T$ is given by
@@ -183,11 +184,11 @@ or
 
 Theorem 6.1.1 gives the number of solutions to equation \eqref{y_eqn}, then, as
 \begin{align*}
-  \card{S} &- \sum_{\{i\} \in \pset_1(J)}\card{A_i}\\
-           &+ \sum_{\{i, j\} \in \pset_2(J)}\card{A_i \cap A_j}\\
-           &- \sum_{\{i, j, k\} \in \pset_3(J)}\card{A_i \cap A_j \cap A_k}\\
-           &+ \sum_{\{i, j, k, l\} \in \pset_4(J)}\card{A_i \cap A_j \cap A_k \cap A_l}\\
-           &- \sum_{\{i, j, k, l, m\} \in \pset_5(J)}\card{A_i \cap A_j \cap A_k \cap A_l \cap A_m}.
+  \card{S} &- \sum_{\mathclap{\{i\} \in \pset_1(J)}}\card{A_i}\\
+           &+ \sum_{\mathclap{\{i, j\} \in \pset_2(J)}}\card{A_i \cap A_j}\\
+           &- \sum_{\mathclap{\{i, j, k\} \in \pset_3(J)}}\card{A_i \cap A_j \cap A_k}\\
+           &+ \sum_{\mathclap{\{i, j, k, l\} \in \pset_4(J)}}\card{A_i \cap A_j \cap A_k \cap A_l}\\
+           &- \sum_{\mathclap{\{i, j, k, l, m\} \in \pset_5(J)}}\card{A_i \cap A_j \cap A_k \cap A_l \cap A_m}.
 \end{align*}
 Because $\card{\bigcap_{i \in J^\prime}A_i}$ is the same for all $J^\prime \in \pset_{>0}(J)$ of a given size, the number of solutions to equation \eqref{y_eqn}, and thus to the given equation, is then
 \begin{align*}
