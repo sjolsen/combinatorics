@@ -152,6 +152,49 @@ Then, the number of $12$-combinations of $S$ is given by
 \problem{8}{
   Determine the number of solutions of the equation $x_1 + x_2 + x_3 + x_4 + x_5 = 14$ in positive integers $x_1$, $x_2$, $x_3$, $x_4$, and $x_5$ not exceeding $5$.
 }
+Let $J = \{1, 2, 3, 4, 5\}$ and $y_i = x_i - 1$ for each $i$ in $J$. Then, the solutions to the given equation are in one-to-one correspondence with the solutions to
+\begin{align}
+  y_1 + y_2 + y_3 + y_4 + y_5 = 9 \label{y_eqn}
+\end{align}
+where $0 \le y_i \le 4$ for all $i$ in $J$. Let $S$ denote the set of all nonnegative integral solutions to equation \eqref{y_eqn} and let $A_i$, for each $i$ in $J$, denote the set of all elements of $S$ in which $y_i \ge 5$.
+
+The cardinality of $S$ is given by:
+\begin{align*}
+  {{9 + 5 - 1} \choose {9}} = 715.
+\end{align*}
+For each $J^\prime \in \pset_{>0}(J)$, the cardinality of $\bigcap_{i \in J^\prime}A_i$ is the same as that of the set nonnegative integer solutions to the equation
+\begin{align*}
+  z_1 + z_2 + z_3 + z_4 + z_5 = 9 - 5 \cdot \card{J^\prime},
+\end{align*}
+or
+\begin{align*}
+  {{9 - 5 \cdot \card{J^\prime} + 5 - 1} \choose {9 - 5 \cdot \card{J^\prime}}} = {{13 - 5 \cdot \card{J^\prime}} \choose {9 - 5 \cdot \card{J^\prime}}}.
+\end{align*}
+
+Theorem 6.1.1 gives the number of solutions to equation \eqref{y_eqn}, then, as
+\begin{align*}
+  \card{S} &- \sum_{\{i\} \in \pset_1(J)}\card{A_i}\\
+           &+ \sum_{\{i, j\} \in \pset_2(J)}\card{A_i \cap A_j}\\
+           &- \sum_{\{i, j, k\} \in \pset_3(J)}\card{A_i \cap A_j \cap A_k}\\
+           &+ \sum_{\{i, j, k, l\} \in \pset_4(J)}\card{A_i \cap A_j \cap A_k \cap A_l}\\
+           &- \sum_{\{i, j, k, l, m\} \in \pset_5(J)}\card{A_i \cap A_j \cap A_k \cap A_l \cap A_m}.
+\end{align*}
+Because $\card{\bigcap_{i \in J^\prime}A_i}$ is the same for all $J^\prime \in \pset_{>0}(J)$ of a given size, the number of solutions to equation \eqref{y_eqn}, and thus to the given equation, is then
+\begin{align*}
+  &\begin{aligned}
+    715 &- {5 \choose 1} \cdot {8 \choose 4}\\
+    &+ {5 \choose 2} \cdot {3 \choose -1}\\
+    &- {5 \choose 3} \cdot {-2 \choose -6}\\
+    &+ {5 \choose 4} \cdot {-7 \choose -11}\\
+    &- {5 \choose 5} \cdot {-12 \choose -16}
+  \end{aligned}\\
+  =\ &\begin{aligned}
+    715 - 5 \cdot 70 + 0 - 0 + 0 - 0
+  \end{aligned}\\
+  =\ &\begin{aligned}
+    \answer{365}.
+  \end{aligned}
+\end{align*}
 
 
 \problem{11}{
