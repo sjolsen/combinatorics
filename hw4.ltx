@@ -4,6 +4,7 @@
 \usepackage{amssymb}
 \usepackage{amsfonts}
 \usepackage{titlesec}
+\usepackage{tikz}
 
 \renewcommand{\thesubsection}{\arabic{subsection}}
 \titleformat{\subsection}[runin]{\normalfont\large\bfseries}{\thesubsection.}{0em}{}[]
@@ -22,6 +23,17 @@
   \vspace{\baselineskip}%
 }
 
+\usetikzlibrary{calc}
+\newcommand{\tikzmark}[1]{\tikz[overlay,remember picture]\node(#1){};}
+\newcommand{\overbox}[1]{%
+  \tikzmark{bl}%
+  #1%
+  \tikzmark{br}%
+  \tikz[overlay,remember picture]{%
+    \draw ($(bl)+(-0.2em,1em)$) rectangle ($(br)+(0.2em,-0.4em)$);%
+  }%
+}
+
 \newcommand{\card}[1]{\left\lvert#1\right\rvert}
 \newcommand{\pset}{\mathcal{P}}
 \newcommand{\suchthat}{:}
@@ -29,6 +41,7 @@
 \newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
 \renewcommand{\emptyset}{\varnothing}
 \DeclareMathOperator{\lcm}{lcm}
+\newcommand{\answer}[1]{\overbox{#1}}
 
 
 \title{MATH 4350 -- Homework 4}
@@ -80,7 +93,7 @@ Then, the number of integers between $1$ and $10000$ inclusive that are not divi
   =\ &\begin{aligned}
     10000 - 6166 + 1666 - 166
   \end{aligned}\\
-  =\ &\begin{aligned}5334\end{aligned}.
+  =\ &\begin{aligned}\answer{5334}\end{aligned}.
 \end{align*}
 
 
