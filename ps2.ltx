@@ -77,12 +77,25 @@ Consider whether there exist distinct $i, j \in J$ such that $a_i = a_j$:
             Let $j$ be the element of $J$ such that $3a_i = a_j$. Then, because $a_j \notin S$, $k_j > 0$, and so $2a_j \divides s_j$, and so $6a_i \divides s_j$. Because each of $\{6, 10, 14\}$ is of the form $2^1 \times a$, we have $3s_i \divides s_j$, and thus $s_i \divides s_j$.
           }
         \end{caselist}
+        In either case, there are two chosen numbers such that one divides the other.
       }
       \case{$x \in \{12\}$}{
+        If $9 \in S$, we may defer without loss of generality to the above case where $x \in \{3, 5, 7, 9, 11, 13, 15\}$. Otherwise, consider whether $18 \in S$:
+        \begin{caselist}
+          \case{$18 \in S$}{
+            If $27 \in S$, then $27$ divides the term $s_i$ such that $a_i = 81$. Otherwise, a multiple of $54$ must be in $S$; in this case, $18$ divides that number.
+          }
+          \case{$18 \notin S$}{
+            Because $9 \notin S$ and $18 \notin S$, some multiple of $2^2 \times 9 = 36$ must be in $S$; in this case, $x$ divides that number.
+          }
+        \end{caselist}
+        In either case, there are two chosen numbers such that one divides the other.
       }
     \end{caselist}
+    In any case, there are two chosen numbers such that one divides the other.
   }
 \end{caselist}
+In either case, there are two chosen numbers such that one divides the other. $\blacksquare$
 
 
 \problem{8}{
