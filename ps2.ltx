@@ -1,6 +1,6 @@
 \documentclass{homework}
 \usepackage{fullpage}
-
+\usepackage{amsthm}
 
 \usepackage{environ}
 \NewEnviron{caselist}{%
@@ -27,75 +27,72 @@
 \problem{2}{
   Concerning Application 5, show that if $100$ integers are chosen from $\{1, 2, \ldots, 200\}$ and one of the integers chosen is less than $16$, then there are two chosen numbers such that one of them is divisible by the other.
 }
-Let $S$ be a set of $100$ integers chosen from $\{1, 2, \ldots, 200\}$ and indexed by some set $J$. Further, suppose $S$ has some element $x$ less than $16$. Each element of $S$ may be written in the form $2^k \times a$, where $k$ is a nonnegative integer and $a$ is odd; let $k_i$ and $a_i$ denote this $k$ and $a$ for each $s_i$ in $S$, respectively.
+\begin{proof}
+  Let $S$ be a set of $100$ integers chosen from $\{1, 2, \ldots, 200\}$ and indexed by some set $J$. Further, suppose $S$ has some element $x$ less than $16$. Each element of $S$ may be written in the form $2^k \times a$, where $k$ is a nonnegative integer and $a$ is odd; let $k_i$ and $a_i$ denote this $k$ and $a$ for each $s_i$ in $S$, respectively.
 
-Consider whether there exist distinct $i, j \in J$ such that $a_i = a_j$:
-\begin{caselist}
-  \case{yes ($\qsome{i,j\in J}{a_i=a_j}$)}{
-    Consider whether $k_i \ge k_j$:
-    \begin{caselist}
-      \case{yes ($k_i \ge k_j$)}{
-        Because $k_i \ge k_j$, there is some nonnegative integer $d$ such that $k_i = k_j + d$. Then,
-        %%% FIXME: Center
-        \begin{align*}
-          s_i &= 2^{k_i} \times a_i\\
-              &= 2^{k_j + d} \times a_i\\
-              &= 2^{k_j + d} \times a_j\\
-              &= 2^d (2^{k_j} \times a_j)\\
-              &= 2^d s_j.
-        \end{align*}
-        Because $d$ is a nonnegative integer, so is $2^d$; then, $s_j \divides s_i$.
-      }
-      \case{no ($k_i \ngeq k_j$)}{
-        Because $k_i \ngeq k_j$, $k_j \ge k_i$; by congruent reasoning to the above, $s_i \divides s_j$.
-      }
-    \end{caselist}
-    In either case, there are two chosen numbers such that one divides the other.
-  }
+  Consider whether there exist distinct $i, j \in J$ such that $a_i = a_j$:
+  \begin{caselist}
+    \case{yes ($\qsome{i,j\in J}{a_i=a_j}$)}{
+      Consider whether $k_i \ge k_j$:
+      \begin{caselist}
+        \case{yes ($k_i \ge k_j$)}{
+          Because $k_i \ge k_j$, there is some nonnegative integer $d$ such that $k_i = k_j + d$. Then,
+          %%% FIXME: Center
+          \begin{align*}
+            s_i &= 2^{k_i} \times a_i\\
+                &= 2^{k_j + d} \times a_i\\
+                &= 2^{k_j + d} \times a_j\\
+                &= 2^d (2^{k_j} \times a_j)\\
+                &= 2^d s_j.
+          \end{align*}
+          Because $d$ is a nonnegative integer, so is $2^d$; then, $s_j \divides s_i$.
+        }
+        \case{no ($k_i \ngeq k_j$)}{
+          Because $k_i \ngeq k_j$, $k_j \ge k_i$; by congruent reasoning to the above, $s_i \divides s_j$.
+        }
+      \end{caselist}
+    }
 
-  \case{no ($\nqsome{i,j\in J}{a_i=a_j}$)}{
-    There are no two $i, j \in J$ such that $a_i = a_j$, so there are $100$ distinct $a_i$. Then, because there are $100$ odd numbers in $\{1, 2, \ldots, 200\}$, each such odd number appears as exactly one $a_i$.
+    \case{no ($\nqsome{i,j\in J}{a_i=a_j}$)}{
+      There are no two $i, j \in J$ such that $a_i = a_j$, so there are $100$ distinct $a_i$. Then, because there are $100$ odd numbers in $\{1, 2, \ldots, 200\}$, each such odd number appears as exactly one $a_i$.
 
-    Consider the following exhaustive cases of $x$:
-    \begin{caselist}
-      \case{$x \in \{1\}$}{
-        $x$ divides every other element of $S$; pick one.
-      }
-      \case{$x \in \{3, 5, 7, 9, 11, 13, 15\}$}{
-        $13x$ is odd, greater than $15$, and less than $200$; therefore, there is some $i$ such that $s_i = 2^{k_i} \times 13x$, and thus that $x \divides s_i$.
-      }
-      \case{$x \in \{2, 4, 8\}$}{
-        There are some $i, j, l, m \in J$ such that $a_i = 81$, $a_j = 27$, $a_l = 9$, and $a_m = 3$. If $k_j < 1$, then $s_j \divides s_i$; otherwise, if $k_l < 2$, then $s_l \divides s_j$; otherwise, if $k_m < 3$, then $s_m \divides s_l$; otherwise, $k_m$ is at least $3$, so $8 \divides s_m$, and so $x \divides s_m$.
-      }
-      \case{$x \in \{6, 10, 14\}$}{
-        Let $i$ be the element of $J$ such that $x = s_i$. Note that $3a_i$ is an odd number between $1$ and $200$. Consider whether $3a_i \in S$:
-        \begin{caselist}
-          \case{$3a_i \in S$}{
-            Let $j$ be the element of $J$ such that $3a_i = s_j$. Note that $3s_j$ is an odd number between $1$ and $200$. Then, there is some $l \in J$ such that $a_l = 3s_j$, and thus that $s_j \divides a_l$, and thus that $s_j \divides s_l$.
-          }
-          \case{$3a_i \notin S$}{
-            Let $j$ be the element of $J$ such that $3a_i = a_j$. Then, because $a_j \notin S$, $k_j > 0$, and so $2a_j \divides s_j$, and so $6a_i \divides s_j$. Because each of $\{6, 10, 14\}$ is of the form $2^1 \times a$, we have $3s_i \divides s_j$, and thus $s_i \divides s_j$.
-          }
-        \end{caselist}
-        In either case, there are two chosen numbers such that one divides the other.
-      }
-      \case{$x \in \{12\}$}{
-        If $9 \in S$, we may defer without loss of generality to the above case where $x \in \{3, 5, 7, 9, 11, 13, 15\}$. Otherwise, consider whether $18 \in S$:
-        \begin{caselist}
-          \case{$18 \in S$}{
-            If $27 \in S$, then $27$ divides the term $s_i$ such that $a_i = 81$. Otherwise, a multiple of $54$ must be in $S$; in this case, $18$ divides that number.
-          }
-          \case{$18 \notin S$}{
-            Because $9 \notin S$ and $18 \notin S$, some multiple of $2^2 \times 9 = 36$ must be in $S$; in this case, $x$ divides that number.
-          }
-        \end{caselist}
-        In either case, there are two chosen numbers such that one divides the other.
-      }
-    \end{caselist}
-    In any case, there are two chosen numbers such that one divides the other.
-  }
-\end{caselist}
-In either case, there are two chosen numbers such that one divides the other. $\blacksquare$
+      Consider the following exhaustive cases of $x$:
+      \begin{caselist}
+        \case{$x \in \{1\}$}{
+          $x$ divides every other element of $S$; pick one.
+        }
+        \case{$x \in \{3, 5, 7, 9, 11, 13, 15\}$}{
+          $13x$ is odd, greater than $15$, and less than $200$; therefore, there is some $i$ such that $s_i = 2^{k_i} \times 13x$, and thus that $x \divides s_i$.
+        }
+        \case{$x \in \{2, 4, 8\}$}{
+          There are some $i, j, l, m \in J$ such that $a_i = 81$, $a_j = 27$, $a_l = 9$, and $a_m = 3$. If $k_j < 1$, then $s_j \divides s_i$; otherwise, if $k_l < 2$, then $s_l \divides s_j$; otherwise, if $k_m < 3$, then $s_m \divides s_l$; otherwise, $k_m$ is at least $3$, so $8 \divides s_m$, and so $x \divides s_m$.
+        }
+        \case{$x \in \{6, 10, 14\}$}{
+          Let $i$ be the element of $J$ such that $x = s_i$. Note that $3a_i$ is an odd number between $1$ and $200$. Consider whether $3a_i \in S$:
+          \begin{caselist}
+            \case{$3a_i \in S$}{
+              Let $j$ be the element of $J$ such that $3a_i = s_j$. Note that $3s_j$ is an odd number between $1$ and $200$. Then, there is some $l \in J$ such that $a_l = 3s_j$, and thus that $s_j \divides a_l$, and thus that $s_j \divides s_l$.
+            }
+            \case{$3a_i \notin S$}{
+              Let $j$ be the element of $J$ such that $3a_i = a_j$. Then, because $a_j \notin S$, $k_j > 0$, and so $2a_j \divides s_j$, and so $6a_i \divides s_j$. Because each of $\{6, 10, 14\}$ is of the form $2^1 \times a$, we have $3s_i \divides s_j$, and thus $s_i \divides s_j$.
+            }
+          \end{caselist}
+        }
+        \case{$x \in \{12\}$}{
+          If $9 \in S$, we may defer without loss of generality to the above case where $x \in \{3, 5, 7, 9, 11, 13, 15\}$. Otherwise, consider whether $18 \in S$:
+          \begin{caselist}
+            \case{$18 \in S$}{
+              If $27 \in S$, then $27$ divides the term $s_i$ such that $a_i = 81$. Otherwise, a multiple of $54$ must be in $S$; in this case, $18$ divides that number.
+            }
+            \case{$18 \notin S$}{
+              Because $9 \notin S$ and $18 \notin S$, some multiple of $2^2 \times 9 = 36$ must be in $S$; in this case, $x$ divides that number.
+            }
+          \end{caselist}
+        }
+      \end{caselist}
+    }
+  \end{caselist}
+\end{proof}
 
 
 \problem{8}{
@@ -104,10 +101,11 @@ In either case, there are two chosen numbers such that one divides the other. $\
     \frac{34478}{99900} = 0.345125125125\cdots.
   \end{align*}
 }
+We may assume without loss of generality that $n$ is a positive integer and $m$ is a nonnegative integer less than $n$.
 
 
 \problem{15}{
-  Prove that, for any $n+1$ integers $a_1, a_2, \ldots, a_{n+1}$, the exist two of the integers $a_i$ and $a_j$ with $i \ne j$ such that $a_i - a_j$ is divisible by $n$.
+  Prove that, for any $n+1$ integers $a_1, a_2, \ldots, a_{n+1}$, there exist two of the integers $a_i$ and $a_j$ with $i \ne j$ such that $a_i - a_j$ is divisible by $n$.
 }
 
 
