@@ -1,6 +1,8 @@
 \documentclass{homework}
 \usepackage{fullpage}
 
+\newtheorem{lemma}{Lemma}
+
 
 
 \title{MATH 4350 -- Homework 5}
@@ -20,38 +22,52 @@
   \item $f_n$ is divisible by $4$ if and only if $n$ is divisible by $6$.
   \end{enumerate}
 }
+\begin{lemma}
+  Any two consecutive Fibonacci numbers are coprime.
+\end{lemma}
+\begin{proof}
+  \incomplete{}
+\end{proof}
+
+\begin{lemma}
+  If $n$ is an integer greater than zero, then for all $m>n$, $f_m = f_{m-n+1} \cdot f_n + f_{m-n} \cdot f_{n-1}$.
+\end{lemma}
+\begin{proof}
+  Consider whether $m=n+1$ or $m>n+1$:
+  \begin{caselist}
+    \case{$m=n+1$}{
+      \vspace{-\baselineskip} % FIXME
+      \begin{align*}
+        f_m &= f_{m-1} + f_{m-2}\\
+            &= f_{n} + f_{n-1}\\
+            &= 1 \cdot f_{n} + 1 \cdot f_{n-1}\\
+            &= f_2 \cdot f_{n} + f_1 \cdot f_{n-1}\\
+            &= f_{m-n+1} \cdot f_n + f_{m-n} \cdot f_{n-1}.
+      \end{align*}
+    }
+    \case{$m>n+1$}{
+      Suppose that for all $k<m$, if $k>n$ then $f_k = f_{k-n+1} \cdot f_n + f_{k-n} \cdot f_{n-1}$. Then,
+      \begin{align*}
+        f_{m} &= f_{m-1} + f_{m-2}\\
+              &= (f_{m-1-n+1} \cdot f_n + f_{m-1-n} \cdot f_{n-1}) + (f_{m-2-n+1} \cdot f_n + f_{m-2-n} \cdot f_{n-1})\\
+              &= (f_{m-1-n+1} + f_{m-2-n+1}) \cdot f_n + (f_{m-1-n} + f_{m-2-n}) \cdot f_{n-1}\\
+              &= (f_{m-n+1-1} + f_{m-n+1-2}) \cdot f_n + (f_{m-n-1} + f_{m-n-2}) \cdot f_{n-1}\\
+              &= f_{m-n+1} \cdot f_n + f_{m-n} \cdot f_{n-1}.
+      \end{align*}
+    }
+  \end{caselist}
+  Then, by strong induction, $f_m = f_{m-n+1} \cdot f_n + f_{m-n} \cdot f_{n-1}$.
+\end{proof}
+
+\begin{lemma}
+  For every multiple $m$ of $n$, where $n$ is an integer greater than zero, $f_m$ is a multiple of $f_n$.
+\end{lemma}
+\begin{proof}
+  \incomplete{}
+\end{proof}
+
 \subproblem{
-  %% FIXME: Don't put on a new line
-  \begin{proof}
-    Consider the following cases of $n$:
-    \begin{caselist}
-      \case{$n=0$}{
-        $f_n=0$ is even and $n$ is divisible by $3$. Therefore, $f_n$ is even if and only if $n$ is divisible by $3$.
-      }
-      \case{$n=1$}{
-        $f_n=1$ is not even and $n$ is not divisible by $3$. Therefore, $f_n$ is even if and only if $n$ is divisible by $3$.
-      }
-      \case{$n\ge2$}{
-        Suppose $f_k$ is even if and only if $k$ is divisible by $3$, for all $k<n$. Consider the following cases of $n$:
-        \begin{caselist}
-          \case{$n \equiv 0 \pmod 3$}{
-            We have $n-1 \equiv 2 \pmod 3$ and $n-2 \equiv 1 \pmod 3$; thus, $n-1$ and $n-2$ are both not divisible by $3$. Because for $k<n$, $f_k$ is even if and only if $k$ is divisible by $3$, $f_{n-1}$ and $f_{n-2}$ are both odd. Then, $f_n$ is the sum of two odd numbers and is therefore even.
-
-            Because $f_n$ is even and $n$ is divisible by $3$, $f_n$ is even if and only if $n$ is divisible by $3$.
-          }
-          \case{$n \equiv 1 \pmod 3$}{
-            We have $n-1 \equiv 0 \pmod 3$ and $n-2 \equiv 2 \pmod 3$; thus, $n-1$ is divisible by $3$ and $n-2$ is not. Because for $k<n$, $f_k$ is even if and only if $k$ is divisible by $3$, $f_{n-1}$ is even and $f_{n-2}$ is odd. Then, $f_n$ is the sum of one even number and one odd number and is therefore odd.
-
-            Because $f_n$ is not even and $n$ is not divisible by $3$, $f_n$ is even if and only if $n$ is divisible by $3$.
-          }
-          \case{$n \equiv 2 \pmod 3$}{
-            We have $n-1 \equiv 1 \pmod 3$ and $n-2 \equiv 0 \pmod 3$; thus, $n-1$ is not divisible by $3$ and $n-2$ is. By congruent reasoning to the previous case, $f_n$ is even if and only if $n$ is divisible by $3$.
-          }
-        \end{caselist}
-        Then, by strong induction, $f_k$ is even if and only if $k$ is divisible by $3$, for all $k\ge2$.
-      }
-    \end{caselist}
-  \end{proof}
+  \incomplete{}
 }
 
 \subproblem{
