@@ -53,6 +53,10 @@
 \newcommand{\answer}[1]{\boxed{#1}}
 \newcommand{\compl}[1]{\overline{#1}}
 
+\newcommand{\incomplete}[1]{%
+  {\it Incomplete.}
+}
+
 %% Quantification
 \newcommand{\quantify}[3]{%
   {#1}\,{#2}.\,{#3}%
@@ -65,6 +69,7 @@
 %% Case analysis
 % FIXME: Don't indent the first paragraph
 \RequirePackage{environ}
+\RequirePackage{enumitem}
 \NewEnviron{caselist}{%
   \begin{itemize}[listparindent=\parindent]%
     \BODY%
