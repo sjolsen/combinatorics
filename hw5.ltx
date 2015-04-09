@@ -1,0 +1,109 @@
+\documentclass{homework}
+\usepackage{fullpage}
+\usepackage{enumitem}
+
+
+
+\title{MATH 4350 -- Homework 5}
+\author{Stuart Olsen}
+%\date{April 8, 2015}
+
+\begin{document}
+\maketitle
+
+
+\section*{Chapter 7.7}
+\problem{3}{
+  Prove the following about the Fibonacci numbers:
+  \begin{enumerate}[label=(\alph*)]
+  \item $f_n$ is even if and only if $n$ is divisible by $3$.
+  \item $f_n$ is divisible by $3$ if and only if $n$ is divisible by $4$.
+  \item $f_n$ is divisible by $4$ if and only if $n$ is divisible by $6$.
+  \end{enumerate}
+}
+
+
+\problem{4}{
+  Prove that the Fibonacci sequence is the solution of the recurrence relation
+  \begin{align*}
+    a_n = 5a_{n-4} + 3a_{n-5},\quad(n \ge 5),
+  \end{align*}
+  where $a_0 = 0$, $a_1 = 1$, $a_2 = 1$, $a_3 = 2$, and $a_4 = 3$. Then use this formula to show that the Fibonacci numbers satisfy the condition that $f_n$ is divisible by $5$ if and only if $n$ is divisible by $5$.
+}
+
+
+\problem{8}{
+  Consider a $1$-by-$n$ chessboard. Suppose we color each square of the chessboard with one of the two colors red and blue. Let $h_n$ be the number of colorings in which no two squares that are colored red are adjacent. Find and verify a recurrence relation that $h_n$ satisfies. Then derive a formula for $h_n$.
+}
+
+
+\problem{11}{
+  The {\it Lucas numbers} $l_0, l_1, l_2, \ldots, l_n, \ldots$ are defined using the same recurrence relations defining the Fibonacci numbers, but with different initial conditions:
+  \begin{align*}
+    l_n = l_{n-1} + l_{n-2},\quad(n \ge 2), l_0 = 2, l_1 = 1.
+  \end{align*}
+  Prove that
+  \begin{enumerate}[label=(\alph*)]
+  \item $l_n = f_{n-1} + f_{n+1}$ for $n \ge 1$.
+  \item $l_0^2 + l_1^2 + \cdots + l_n^2 = l_nl_{n+1} + 2$ for $n \ge 0$.
+  \end{enumerate}
+}
+
+
+\problem{12}{
+  Let $h_0, h_1, h_2, \ldots, h_n, \ldots$ be the sequence defined by
+  \begin{align*}
+    h_n = n^3,\quad(n \ge 0).
+  \end{align*}
+  Show that $h_n = h_{n-1} + 3n^2 - 3n + 1$ is the recurrence relation for the sequence.
+}
+
+
+\problem{13}{%a,b
+  Determine the generating function for each of the following sequences:
+  \begin{enumerate}[label=(\alph*)]
+  \item $c^0 = 1, c, c^2, \ldots, c^n, \ldots$
+  \item $1, -1, 1, -1, \ldots, (-1)^n, \ldots$
+  \end{enumerate}
+}
+
+
+\problem{16}{
+  Formulate a combinatorial problem for which the generating function is
+  \begin{align*}
+    (1 + x + x^2)(1 + x^2 + x^4 + x^6)(1 + x^2 + x^4 + \cdots)(x + x^2 + x^3 + \cdots).
+  \end{align*}
+}
+
+
+\problem{17}{
+  Determine the generating function for the number $h_n$ of bags of fruit of apples, oranges, bananas, and pears in which there are an even number of apples, at most two oranges, a multiple of three number of bananas, and at most one pear. Then find a formula for $h_n$ from the generating function.
+}
+
+
+\problem{19}{
+  Let $h_0, h_1, h_2, \ldots, h_n, \ldots$ be the sequence defined by $h_n = {n \choose 2}, (n \ge 0)$. Determine the generating function for the sequence.
+}
+
+
+\problem{22}{
+  Determine the exponential generating function for the sequence of factorials: $0!, 1!, 2!, 3!, \ldots, n!, \ldots$.
+}
+
+
+\problem{31}{
+  Solve the recurrence relation $h_n = 4h_{n-2}, (n \ge 2)$ with initial values $h_0 = 0$ and $h_1 = 1$.
+}
+
+
+\problem{42}{
+  Solve the nonhomogeneous recurrence relation
+  \begin{align*}
+    h_n &= 4h_{n-1} + 4^n,\quad(n \ge 1)\\
+    h_0 &= 3.
+  \end{align*}
+}
+
+
+
+\end{document}
