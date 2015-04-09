@@ -1,9 +1,10 @@
-\ProvidesClass{homework}[2015/04/08 Homework class]
+\ProvidesClass{homework}[2015/04/09 Homework class]
 \LoadClass{article}
 
 \RequirePackage{amsmath}
 \RequirePackage{amssymb}
 \RequirePackage{amsfonts}
+\RequirePackage{amsthm}
 \RequirePackage{titlesec}
 
 %% Section formatting
@@ -60,3 +61,17 @@
 \newcommand{\nqsome}[2]{\quantify{\nexists}{#1}{#2}}
 \newcommand{\qall}[2]{\quantify{\forall}{#1}{#2}}
 % FIXME: \nqall
+
+%% Case analysis
+% FIXME: Don't indent the first paragraph
+\RequirePackage{environ}
+\NewEnviron{caselist}{%
+  \begin{itemize}[listparindent=\parindent]%
+    \BODY%
+  \end{itemize}%
+}
+\newcommand{\case}[2]{%
+  \item {#1}:
+
+    {#2}%
+}

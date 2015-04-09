@@ -21,6 +21,42 @@
   \item $f_n$ is divisible by $4$ if and only if $n$ is divisible by $6$.
   \end{enumerate}
 }
+\subproblem{
+  %% FIXME: Don't put on a new line
+  \begin{proof}
+    Consider the following cases of $n$:
+    \begin{caselist}
+      \case{$n=0$}{
+        $f_n=0$ is even and $n$ is divisible by $3$. Therefore, $f_n$ is even if and only if $n$ is divisible by $3$.
+      }
+      \case{$n=1$}{
+        $f_n=1$ is not even and $n$ is not divisible by $3$. Therefore, $f_n$ is even if and only if $n$ is divisible by $3$.
+      }
+      \case{$n\ge2$}{
+        Suppose $f_k$ is even if and only if $k$ is divisible by $3$, for all $k<n$. Consider the following cases of $n$:
+        \begin{caselist}
+          \case{$n \equiv 0 \pmod 3$}{
+            We have $n-1 \equiv 2 \pmod 3$ and $n-2 \equiv 1 \pmod 3$; thus, $n-1$ and $n-2$ are both not divisible by $3$. Because for $k<n$, $f_k$ is even if and only if $k$ is divisible by $3$, $f_{n-1}$ and $f_{n-2}$ are both odd. Then, $f_n$ is the sum of two odd numbers and is therefore even.
+
+            Because $f_n$ is even and $n$ is divisible by $3$, $f_n$ is even if and only if $n$ is divisible by $3$.
+          }
+          \case{$n \equiv 1 \pmod 3$}{
+            We have $n-1 \equiv 0 \pmod 3$ and $n-2 \equiv 2 \pmod 3$; thus, $n-1$ is divisible by $3$ and $n-2$ is not. Because for $k<n$, $f_k$ is even if and only if $k$ is divisible by $3$, $f_{n-1}$ is even and $f_{n-2}$ is odd. Then, $f_n$ is the sum of one even number and one odd number and is therefore odd.
+
+            Because $f_n$ is not even and $n$ is not divisible by $3$, $f_n$ is even if and only if $n$ is divisible by $3$.
+          }
+          \case{$n \equiv 2 \pmod 3$}{
+            We have $n-1 \equiv 1 \pmod 3$ and $n-2 \equiv 0 \pmod 3$; thus, $n-1$ is not divisible by $3$ and $n-2$ is. By congruent reasoning to the previous case, $f_n$ is even if and only if $n$ is divisible by $3$.
+          }
+        \end{caselist}
+        Then, by strong induction, $f_k$ is even if and only if $k$ is divisible by $3$, for all $k\ge2$.
+      }
+    \end{caselist}
+  \end{proof}
+}
+
+\subproblem{
+}
 
 
 \problem{4}{
