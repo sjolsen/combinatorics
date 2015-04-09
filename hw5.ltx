@@ -1,8 +1,6 @@
 \documentclass{homework}
 \usepackage{fullpage}
 
-\newtheorem{lemma}{Lemma}
-
 
 
 \title{MATH 4350 -- Homework 5}
@@ -22,11 +20,35 @@
   \item $f_n$ is divisible by $4$ if and only if $n$ is divisible by $6$.
   \end{enumerate}
 }
+\begin{definition}
+  Two natural numbers $m$ and $n$ are said to be {\em coprime} if their only common divisor is $1$, i.e. $\qall{i \in \bn}{(i \divides m \land i \divides n \implies i = 1)}$.
+\end{definition}
+
 \begin{lemma}
-  Any two consecutive Fibonacci numbers are coprime.
+  For all $n \in \bn$, $f_n$ and $f_{n+1}$ are coprime.
 \end{lemma}
 \begin{proof}
-  \incomplete{}
+  Consider the following cases of $n$:
+  \begin{caselist}
+    \case{$n=0$}{
+      $f_{n+1}=1$. $1$ is the only number that divides $1$. Then, $i \divides f_{n+1} \implies i = 1$, so $i \divides f_{n} \land i \divides f_{n+1} \implies i = 1$; that is, $f_n$ and $f_{n+1}$ are coprime.
+    }
+    \case{$n>0$}{
+      Assume that for some integer $k\ge0$, $f_k$ and $f_{k+1}$ are coprime.
+
+      Suppose $f_{k+1}$ and $f_{k+2}$ are {\em not} coprime; then, there exists some $i>1$ such that $i \divides f_{k+1}$ and $i \divides f_{k+2}$. Then, there exist $r, s \in \bn$ such that $f_{k+1} = i \cdot r$ and $f_{k+2} = i \cdot s$. We then have
+      \begin{align*}
+        f_{k+2} &= i \cdot s\\
+        f_{k} + f_{k+1} &= i \cdot s\\
+        f_{k} + i \cdot r &= i \cdot s\\
+        f_{k} &= i \cdot s - i \cdot r\\
+        f_{k} &= i \cdot (s - r).
+      \end{align*}
+
+      Because $s-r$ is a nonnegative integer (in turn because $r$ and $s$ are integers and the Fibonacci sequence is monotonically non-decreasing), $i$ then divides $f_{k}$. Then, because $i \divides f_{k+1}$, $f_k$ and $f_{k+1}$ are not coprime, which is a contradiction; therefore, $f_{k+1}$ and $f_{k+2}$ are coprime.
+    }
+  \end{caselist}
+  Therefore, by weak induction, $f_n$ and $f_{n+1}$ are coprime for all $n \in \bn$.
 \end{proof}
 
 \begin{lemma}

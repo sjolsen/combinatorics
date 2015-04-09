@@ -4,7 +4,6 @@
 \RequirePackage{amsmath}
 \RequirePackage{amssymb}
 \RequirePackage{amsfonts}
-\RequirePackage{amsthm}
 \RequirePackage{titlesec}
 
 %% Section formatting
@@ -52,14 +51,21 @@
 \DeclareMathOperator{\lcm}{lcm}
 \newcommand{\answer}[1]{\boxed{#1}}
 \newcommand{\compl}[1]{\overline{#1}}
+\newcommand{\bn}{\mathbb{N}}
+\renewcommand{\implies}{\Rightarrow}
 
 \newcommand{\incomplete}[1]{%
   {\it Incomplete.}
 }
 
+%% Theorem stuff
+\RequirePackage{amsthm}
+\newtheorem{lemma}{Lemma}
+\newtheorem*{definition}{Definition}
+
 %% Quantification
 \newcommand{\quantify}[3]{%
-  {#1}\,{#2}.\,{#3}%
+  {#1}\,{#2}\,.\,{#3}%
 }
 \newcommand{\qsome}[2]{\quantify{\exists}{#1}{#2}}
 \newcommand{\nqsome}[2]{\quantify{\nexists}{#1}{#2}}
