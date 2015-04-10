@@ -82,7 +82,7 @@
 \end{proof}
 
 \begin{lemma}\label{f-is-divisibility-sequence}
-  For all $m, n \in \bn$, $f_n \divides f_m$ if and only if $n \divides m$.
+  For all $m, n \in \bn$ with $n \ge 3$, $f_n \divides f_m$ if and only if $n \divides m$.
 \end{lemma}
 \begin{proof}
   \incomplete{}
@@ -108,17 +108,25 @@
       Then, by weak induction on p, we have $n \divides m \implies f_n \divides f_m$.
     }
     \case{$f_n \divides f_m \implies n \divides m$}{
-      Assume $f_n \divides f_m$. Consider the following cases of $m$ and $n$:
+      Suppose $n \ndivides m$. Then, there are integers $q$ and $r$ such that $0 < r < n$ and $m = q \cdot n + r$. We proceed by induction on $q$:
       \begin{caselist}
-        \case{$m=0$}{
-          Because $0 = 0 \cdot n$, $n \divides m$.
+        \case{$q=0$}{
+          We have $m = r$, so $0 < m < n$, and so $0 < f_m \le f_n$. Because $n \ge 3$ and the Fibonacci sequence is monotonically increasing from index $2$ and up, we then have $f_m < f_n$. Then, $f_n \ndivides f_m$, as no positive number divides a nonzero number less than itself.
         }
-        \case{$m \ne 0$ and $n=0$}{
-          Because $m \ne 0$ and $n=0$, $f_m \ne 0$ and $f_n=0$; thus, there is some $p \in \bn$ such that $p \cdot 0 \ne 0$ and so that $0 \ne 0$, which is a contradiction. Therefore, $f_n \ndivides f_m$ and so $f_n \divides f_m \implies n \divides m$ is vacuously true.
-        }
-        \case{$m \ne 0$ and $n \ne 0$}{
+        \case{$q > 0$}{
+          Assume $f_n \ndivides f_{(q-1)n + r}$. Suppose $f_n \divides f_m$; then, there is some $p \in \bn$ such that $f_m = p \cdot f_n$. Note that $m>n$. Then, by application of lemma \ref{f-combination},
+          \begin{align*}
+            f_{m} &= f_{m-n+1} \cdot f_n + f_{m-n} \cdot f_{n-1}\\
+            p \cdot f_{n} &= f_{m-n+1} \cdot f_n + f_{m-n} \cdot f_{n-1}\\
+            p \cdot f_{n} - f_{m-n+1} \cdot f_n &= f_{m-n} \cdot f_{n-1}\\
+            (p - f_{m-n+1}) \cdot f_n &= f_{m-n} \cdot f_{n-1}\\
+            (p - f_{m-n+1}) \cdot f_n &= f_{(q \cdot n + r)-n} \cdot f_{n-1}\\
+            (p - f_{m-n+1}) \cdot f_n &= f_{(q-1)n + r} \cdot f_{n-1}.
+          \end{align*}
+          Then, $f_n \divides f_{(q-1)n + r} \cdot f_{n-1}$. Because $f_n \ndivides f_{(q-1)n + r}$, $f_n | f_{n-1}$, which contradicts the fact that no positive number (e.g. $f_n$) divides a nonzero number (e.g. $f_{n-1}$) less than itself. Then, $f_n \ndivides f_m$.
         }
       \end{caselist}
+      Thus, by weak induction on $q$, we have $f_n \ndivides f_m$. Therefore, $n \ndivides m \implies f_n \ndivides f_m$, and so by contraposition, $f_n \divides f_m \implies n \divides m$.
     }
   \end{caselist}
 \end{proof}
