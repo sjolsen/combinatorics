@@ -10,33 +10,44 @@
 \renewcommand{\thesubsection}{\arabic{subsection}}
 \renewcommand{\thesubsubsection}{\alph{subsubsection}}
 \titleformat{\subsection}[runin]{\normalfont\large\bfseries}{\thesubsection.}{0em}{}[]
-\titleformat{\subsubsection}[runin]{}{(\thesubsubsection)}{0em}{}[]
+\titleformat{\subsubsection}[runin]{\normalfont\large}{(\thesubsubsection)}{0em}{}[]
 \titlespacing*{\subsection}{0pt}{4em}{1.5ex plus .2ex}
 \titlespacing*{\subsubsection}{0pt}{2ex}{1.5ex plus .2ex}
 
 %% Subsection-level "problem" command
-\newsavebox\secindentbox
-\newlength\secprewidth
-\newlength\sectextwidth
+\newsavebox\subsecindentbox
+\newlength\subsecprewidth
+\newlength\subsectextwidth
 
 \def\problem{\@ifstar\@problemstar\@problem}
 
 \newcommand{\@problem}[2]{%
   \setcounter{subsection}{\the\numexpr#1-1}%
-  \savebox{\secindentbox}{\normalfont\large\bfseries #1.\ \hspace{1.95831pt}}%
-  \settowidth{\secprewidth}{\usebox{\secindentbox}}%
-  \setlength{\sectextwidth}{\textwidth}%
-  \addtolength{\sectextwidth}{-\secprewidth}%
-  \subsection{}{\parbox[t]{\sectextwidth}{\large #2}}%
-  \vspace{\baselineskip}%
+  \savebox{\subsecindentbox}{\normalfont\large\bfseries #1.\ \hspace{1.95831pt}}%
+  \settowidth{\subsecprewidth}{\usebox{\subsecindentbox}}%
+  \setlength{\subsectextwidth}{\textwidth}%
+  \addtolength{\subsectextwidth}{-\subsecprewidth}%
+  \subsection{}{\parbox[t]{\subsectextwidth}{\large #2}}%
+  \vspace{1.5ex plus .2ex}%
 }
 
 \newcommand{\@problemstar}[1]{%
   {\large #1}%
 }
 
-\newcommand{\subproblem}[1]{%
-  \subsubsection{}{#1}%
+%% Subsubsection-level "subproblem command"
+\newsavebox\subsubsecindentbox
+\newlength\subsubsecprewidth
+\newlength\subsubsectextwidth
+
+\newcommand{\subproblem}[2]{%
+  \setcounter{subsubsection}{\the\numexpr`#1-`a}%
+  \savebox{\subsubsecindentbox}{(#1)\ }%
+  \settowidth{\subsubsecprewidth}{\usebox{\subsubsecindentbox}}%
+  \setlength{\subsubsectextwidth}{\textwidth}%
+  \addtolength{\subsubsectextwidth}{-\subsubsecprewidth}%
+  \subsubsection{}{\parbox[t]{\subsubsectextwidth}{\large #2}}%
+  \vspace{1.5ex plus .2ex}%
 }
 
 

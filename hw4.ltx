@@ -189,17 +189,22 @@ as $r_k = 0$ for $k>4$. Thus, the number of permutations is
 
 \problem{15}{
   At a party, seven gentlemen check their hats. In how many ways can their hats be returned so that
-  \begin{enumerate}[label=(\alph*)]
-  \item no gentleman receives his own hat?
-  \item at least one of the gentlemen receives his own hat?
-  \item at least two of the gentlemen receive their own hats?
-  \end{enumerate}
 }
-\subproblem{$D_7 = \answer{1854}$.}
-\subproblem{$7! - D_7 = \answer{3186}$.}
-\subproblem{
-  This count can be formed from count (b) by excluding the ways in which exactly one gentleman receives his own hat; those can be counted by fixing one hat in its own position and deranging the rest. Thus, the number of ways to form this count is $7! - D_7 - 7 \cdot D_6 = \answer{1331}$.
+\subproblem{a}{
+  no gentleman receives his own hat?
 }
+$D_7 = \answer{1854}$.
+
+\subproblem{b}{
+  at least one of the gentlemen receives his own hat?
+}
+$7! - D_7 = \answer{3186}$.
+
+\subproblem{c}{
+  at least two of the gentlemen receive their own hats?
+}
+This count can be formed from count (b) by excluding the ways in which exactly one gentleman receives his own hat; those can be counted by fixing one hat in its own position and deranging the rest. Thus, the number of ways to form this count is $7! - D_7 - 7 \cdot D_6 = \answer{1331}$.
+
 
 
 \end{document}

@@ -5,7 +5,7 @@
 
 \title{MATH 4350 -- Homework 5}
 \author{Stuart Olsen}
-%\date{April 8, 2015}
+% \date{April 8, 2015}
 
 \begin{document}
 \maketitle
@@ -14,11 +14,9 @@
 \section*{Chapter 7.7}
 \problem{3}{
   Prove the following about the Fibonacci numbers:
-  \begin{enumerate}[label=(\alph*)] % FIXME: Put subproblems with their solutions
-  \item $f_n$ is even if and only if $n$ is divisible by $3$.
-  \item $f_n$ is divisible by $3$ if and only if $n$ is divisible by $4$.
-  \item $f_n$ is divisible by $4$ if and only if $n$ is divisible by $6$.
-  \end{enumerate}
+}
+\subproblem{a}{
+  $f_n$ is even if and only if $n$ is divisible by $3$.
 }
 \begin{lemma}\label{f-combination}
   If $n$ is an integer greater than zero, then for all $m>n$, $f_m = f_{m-n+1} \cdot f_n + f_{m-n} \cdot f_{n-1}$.
@@ -99,44 +97,47 @@
   \end{caselist}
 \end{proof}
 
-\subproblem{
-  $f_3 = 2$; then, by Lemma \ref{f-is-divisibility-sequence}, $f_n$ is even (i.e., $2$ divides $f_n$) if and only if $3$ divides $n$.
-}
+$f_3 = 2$; then, by Lemma \ref{f-is-divisibility-sequence}, $f_n$ is even (i.e., $2$ divides $f_n$) if and only if $3$ divides $n$.
 
-\subproblem{
-  $f_4 = 3$; then, by Lemma \ref{f-is-divisibility-sequence}, $3$ divides $f_n$ if and only if $4$ divides $n$.
-}
 
-\subproblem{
-  We proceed in two parts:
-  \begin{caselist}
-    \case{$6 \divides n \implies 4 \divides f_n$}{
-      $f_6=8$, so by Lemma \ref{f-is-divisibility-sequence}, if $n$ is divisible by $6$, $f_n$ is divisible by $8$, and thus by $4$.
-    }
-    \case{$4 \divides f_n \implies 6 \divides n$}{
-      Assume $4 \divides f_n$; then, $2 \divides f_n$, so by Lemma \ref{f-is-divisibility-sequence}, $3 \divides n$. Suppose $2 \ndivides n$. From $3 \divides n$ and $2 \ndivides n$, we know $n = 6 \cdot p + 3$ for some $p \in \bn$. We proceed by induction on $p$:
-      \begin{caselist}
-        \case{$p=0$}{
-          $n=3$, so $f_n=2$, from which it follows that $4 \ndivides f_n$.
-        }
-        \case{$p > 0$}{
-          Assume $4 \ndivides f_{6(p-1)+3}$. Suppose $4 \divides f_n$; then, there is some $q \in \bn$ such that $f_n = 4 \cdot q$. From $p > 0$, we have $n>6$, so by Lemma \ref{f-combination},
-          \begin{align*}
-            f_n &= f_{n-6+1} \cdot f_6 + f_{n-6} \cdot f_{6-1}\\
-            4 \cdot q &= f_{n-5} \cdot 8 + f_{n-6} \cdot 5\\
-            4 \cdot q &= 4 \cdot (2 \cdot f_{n-5}) + f_{n-6} \cdot 5\\
-            4 \cdot q - 4 \cdot (2 \cdot f_{n-5}) &= f_{n-6} \cdot 5\\
-            4 \cdot (q - 2 \cdot f_{n-5}) &= f_{n-6} \cdot 5\\
-            4 \cdot (q - 2 \cdot f_{n-5}) &= f_{(6p+3)-6} \cdot 5\\
-            4 \cdot (q - 2 \cdot f_{n-5}) &= f_{6(p-1)+3} \cdot 5.
-          \end{align*}
-          Then, $4 \divides f_{6(p-1)+3} \cdot 5$. Because $4 \ndivides 5$, then, $4 \divides f_{6(p-1)+3}$, which is a contradiction. Therefore, $4 \ndivides f_n$.
-        }
-      \end{caselist}
-      Thus, by weak induction, $4 \ndivides f_n$, which is a contradiction. Therefore, $2 \divides n$, and so $6 \divides n$.
-    }
-  \end{caselist}
+\subproblem{b}{
+  $f_n$ is divisible by $3$ if and only if $n$ is divisible by $4$.
 }
+$f_4 = 3$; then, by Lemma \ref{f-is-divisibility-sequence}, $3$ divides $f_n$ if and only if $4$ divides $n$.
+
+
+\subproblem{c}{
+  $f_n$ is divisible by $4$ if and only if $n$ is divisible by $6$.
+}
+We proceed in two parts:
+\begin{caselist}
+  \case{$6 \divides n \implies 4 \divides f_n$}{
+    $f_6=8$, so by Lemma \ref{f-is-divisibility-sequence}, if $n$ is divisible by $6$, $f_n$ is divisible by $8$, and thus by $4$.
+  }
+  \case{$4 \divides f_n \implies 6 \divides n$}{
+    Assume $4 \divides f_n$; then, $2 \divides f_n$, so by Lemma \ref{f-is-divisibility-sequence}, $3 \divides n$. Suppose $2 \ndivides n$. From $3 \divides n$ and $2 \ndivides n$, we know $n = 6 \cdot p + 3$ for some $p \in \bn$. We proceed by induction on $p$:
+    \begin{caselist}
+      \case{$p=0$}{
+        $n=3$, so $f_n=2$, from which it follows that $4 \ndivides f_n$.
+      }
+      \case{$p > 0$}{
+        Assume $4 \ndivides f_{6(p-1)+3}$. Suppose $4 \divides f_n$; then, there is some $q \in \bn$ such that $f_n = 4 \cdot q$. From $p > 0$, we have $n>6$, so by Lemma \ref{f-combination},
+        \begin{align*}
+          f_n &= f_{n-6+1} \cdot f_6 + f_{n-6} \cdot f_{6-1}\\
+          4 \cdot q &= f_{n-5} \cdot 8 + f_{n-6} \cdot 5\\
+          4 \cdot q &= 4 \cdot (2 \cdot f_{n-5}) + f_{n-6} \cdot 5\\
+          4 \cdot q - 4 \cdot (2 \cdot f_{n-5}) &= f_{n-6} \cdot 5\\
+          4 \cdot (q - 2 \cdot f_{n-5}) &= f_{n-6} \cdot 5\\
+          4 \cdot (q - 2 \cdot f_{n-5}) &= f_{(6p+3)-6} \cdot 5\\
+          4 \cdot (q - 2 \cdot f_{n-5}) &= f_{6(p-1)+3} \cdot 5.
+        \end{align*}
+        Then, $4 \divides f_{6(p-1)+3} \cdot 5$. Because $4 \ndivides 5$, then, $4 \divides f_{6(p-1)+3}$, which is a contradiction. Therefore, $4 \ndivides f_n$.
+      }
+    \end{caselist}
+    Thus, by weak induction, $4 \ndivides f_n$, which is a contradiction. Therefore, $2 \divides n$, and so $6 \divides n$.
+  }
+\end{caselist}
+
 
 
 \problem{4}{
