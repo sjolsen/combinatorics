@@ -108,6 +108,17 @@
       Then, by weak induction on p, we have $n \divides m \implies f_n \divides f_m$.
     }
     \case{$f_n \divides f_m \implies n \divides m$}{
+      Assume $f_n \divides f_m$. Consider the following cases of $m$ and $n$:
+      \begin{caselist}
+        \case{$m=0$}{
+          Because $0 = 0 \cdot n$, $n \divides m$.
+        }
+        \case{$m \ne 0$ and $n=0$}{
+          Because $m \ne 0$ and $n=0$, $f_m \ne 0$ and $f_n=0$; thus, there is some $p \in \bn$ such that $p \cdot 0 \ne 0$ and so that $0 \ne 0$, which is a contradiction. Therefore, $f_n \ndivides f_m$ and so $f_n \divides f_m \implies n \divides m$ is vacuously true.
+        }
+        \case{$m \ne 0$ and $n \ne 0$}{
+        }
+      \end{caselist}
     }
   \end{caselist}
 \end{proof}
