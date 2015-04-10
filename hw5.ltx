@@ -51,7 +51,7 @@
   Therefore, by weak induction, $f_n$ and $f_{n+1}$ are coprime for all $n \in \bn$.
 \end{proof}
 
-\begin{lemma}
+\begin{lemma}\label{f-combination}
   If $n$ is an integer greater than zero, then for all $m>n$, $f_m = f_{m-n+1} \cdot f_n + f_{m-n} \cdot f_{n-1}$.
 \end{lemma}
 \begin{proof}
@@ -86,6 +86,30 @@
 \end{lemma}
 \begin{proof}
   \incomplete{}
+  We proceed in two parts:
+  \begin{caselist}
+    \case{$n \divides m \implies f_n \divides f_m$}{
+      Assume $n \divides m$; then, we have some integer $p \ge 1$ such that $m = p \cdot n$. We proceed by induction on $p$:
+      \begin{caselist}
+        \case{$p=1$}{
+          Since $p=1$, $n=m$. Since $0 \ndivides 0$, then, $n$ (and $m$) is greater than zero, and so $f_n=f_m$ is greater than zero. Then, $f_n \divides f_m$.
+        }
+        \case{$p>1$}{
+          Assume $f_n \divides f_{(p-1)n}$; then, there is some $q \ge 1$ such that $f_{(p-1)n} = q \cdot f_n$. Then,
+          \begin{align*}
+            f_{m} &= f_{m-n+1} \cdot f_n + f_{m-n} \cdot f_{n-1}\quad(\text{by lemma \ref{f-combination}})\\
+                  &= f_{m-n+1} \cdot f_n + f_{(p-1)n} \cdot f_{n-1}\\
+                  &= f_{m-n+1} \cdot f_n + q \cdot f_n \cdot f_{n-1}\\
+                  &= (f_{m-n+1} + q \cdot f_{n-1}) \cdot f_n,
+          \end{align*}
+          and so $f_n \divides f_m$.
+        }
+      \end{caselist}
+      Then, by weak induction on p, we have $n \divides m \implies f_n \divides f_m$.
+    }
+    \case{$f_n \divides f_m \implies n \divides m$}{
+    }
+  \end{caselist}
 \end{proof}
 
 \subproblem{
@@ -98,6 +122,7 @@
 
 \subproblem{
   \incomplete{}
+  $f_6=8$, so by lemma \ref{f-is-divisibility-sequence}, if $n$ is divisible by $6$, $f_n$ is divisible by $8$, and thus by $4$.
 }
 
 

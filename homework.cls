@@ -46,13 +46,13 @@
 \newcommand{\pset}{\mathcal{P}}
 \newcommand{\suchthat}{:}
 \newcommand{\divides}{\mathbin{|}}
+\newcommand{\ndivides}{\mathbin{\nmid}} % FIXME: ugly
 \newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
 \renewcommand{\emptyset}{\varnothing}
 \DeclareMathOperator{\lcm}{lcm}
 \newcommand{\answer}[1]{\boxed{#1}}
 \newcommand{\compl}[1]{\overline{#1}}
 \newcommand{\bn}{\mathbb{N}}
-\renewcommand{\implies}{\Rightarrow}
 
 \newcommand{\incomplete}[1]{%
   {\it Incomplete.}
