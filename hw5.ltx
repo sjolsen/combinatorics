@@ -1,7 +1,7 @@
 \documentclass{homework}
 \usepackage{fullpage}
 
-
+\allowdisplaybreaks
 
 \title{MATH 4350 -- Homework 5}
 \author{Stuart Olsen}
@@ -154,7 +154,94 @@ For $n \le 4$, the given $a_n$ equal $f_n$. For $n > 4$, $f_n = a_n$ follows dir
 \problem{8}{
   Consider a $1$-by-$n$ chessboard. Suppose we color each square of the chessboard with one of the two colors red and blue. Let $h_n$ be the number of colorings in which no two squares that are colored red are adjacent. Find and verify a recurrence relation that $h_n$ satisfies. Then derive a formula for $h_n$.
 }
-\incomplete{}
+There is one way to color no squares while satisfying the conditions, so $h_0 = 1$. There are two ways to color one square while satisfying the conditions, so $h_1 = 2$.
+
+Suppose we have $h_n$ and $h_{n+1}$. We can partition the ways to color $h_{n+2}$ into two cases:
+\begin{caselist}
+  \case{First square blue}{
+    In this case, it does not matter which colors are used on the rest of the board; if the rest of the board satisfies the conditions, so will the board plus one blue square. Then, there is one way to color the board with the first square blue for each coloring of the rest of the board; that is, $h_{n+2} = h_{n+1}$.
+  }
+  \case{First square red}{
+    In this case, it matters which color is used on the first square of the rest of the board: if it is red, there are no ways to color the board satisfying the conditions; otherwise, there is one coloring for each coloring of the rest of the board. In this second case, because the first square of the rest of the board is blue, we have from the above case that there are $h_n$ ways to color the rest of the board. Then, there are $0 + h_n = h_n$ ways to color the board with the first square red.
+  }
+\end{caselist}
+In total, then, there are $h_{n+2} = h_{n+1} + h_n$ ways to color the board. Thus, for any integer $n \ge 0$, there are
+\begin{align*}
+  h_n = \begin{cases}
+    1 & \text{if $n = 0$}\\
+    2 & \text{if $n = 1$}\\
+    h_{n-1} + h_{n-2} & \text{otherwise}
+  \end{cases}
+\end{align*}
+ways to color a $1$-by-$n$ red and blue with no two adjacent red squares.
+
+By Example 7.1.5 from the text, this recurrence relation gives rise to the formula
+\begin{align*}
+  h_n = c_1 \left(\frac{1+\sqrt{5}}{2}\right)^n + c_2 \left(\frac{1-\sqrt{5}}{2}\right)^n
+\end{align*}
+for some $c_1$ and $c_2$. We find these by solving the system of equations
+\begin{align*}
+  \begin{cases}
+    (n=0) & c_1 + c_2 = 1\\
+    (n=1) & c_1 \left(\frac{1+\sqrt{5}}{2}\right) + c_2 \left(\frac{1-\sqrt{5}}{2}\right) = 2:
+  \end{cases}
+\end{align*}
+\begin{align*}
+  c_1 \left(\frac{1+\sqrt{5}}{2}\right) + c_2 \left(\frac{1-\sqrt{5}}{2}\right) &= 2\\
+  (1 - c_2) \left(\frac{1+\sqrt{5}}{2}\right) + c_2 \left(\frac{1-\sqrt{5}}{2}\right) &= 2\\
+  (1 - c_2) (1+\sqrt{5}) + c_2 (1-\sqrt{5}) &= 4\\
+  1 + \sqrt{5} - c_2 - c_2\sqrt{5} + c_2 - c_2\sqrt{5} &= 4\\
+  1 + \sqrt{5} - 2c_2\sqrt{5} &= 4\\
+  -2c_2\sqrt{5} &= 4 - 1 - \sqrt{5}\\
+  c_2 &= \answer{-\frac{3-\sqrt{5}}{2\sqrt{5}}};\\
+  c_1 &= 1 - c_2\\
+      &= 1 + \frac{3-\sqrt{5}}{2\sqrt{5}}\\
+      &= \answer{\frac{3+\sqrt{5}}{2\sqrt{5}}}.
+\end{align*}
+Then,
+\begin{align}
+  h_n &= c_1 \left(\frac{1+\sqrt{5}}{2}\right)^n + c_2 \left(\frac{1-\sqrt{5}}{2}\right)^n\notag\\
+      &= \frac{3+\sqrt{5}}{2\sqrt{5}} \left(\frac{1+\sqrt{5}}{2}\right)^n - \frac{3-\sqrt{5}}{2\sqrt{5}} \left(\frac{1-\sqrt{5}}{2}\right)^n\label{h-formula}.
+\end{align}
+
+\begin{proof}
+  We may verify equation \ref{h-formula} by induction on $n$:
+  \begin{caselist}
+    \case{$n = 0$}{
+      \begin{align*}
+        h_n &= 1\\
+            &= \frac{2\sqrt{5}}{2\sqrt{5}}\\
+            &= \frac{3+\sqrt{5}}{2\sqrt{5}} - \frac{3-\sqrt{5}}{2\sqrt{5}}\\
+            &= \frac{3+\sqrt{5}}{2\sqrt{5}} \left(\frac{1+\sqrt{5}}{2}\right)^n - \frac{3-\sqrt{5}}{2\sqrt{5}} \left(\frac{1-\sqrt{5}}{2}\right)^n.
+      \end{align*}
+    }
+    \case{$n = 1$}{
+      \begin{align*}
+        h_1 &= 2\\
+            &= \frac{8\sqrt{5}}{4\sqrt{5}}\\
+            &= \frac{3 + 3\sqrt{5} + \sqrt{5} + 5}{4\sqrt{5}} - \frac{3 - 3\sqrt{5} - \sqrt{5} + 5}{4\sqrt{5}}\\
+            &= \frac{3+\sqrt{5}}{2\sqrt{5}} \cdot \frac{1+\sqrt{5}}{2} - \frac{3-\sqrt{5}}{2\sqrt{5}} \cdot \frac{1-\sqrt{5}}{2}\\
+            &= \frac{3+\sqrt{5}}{2\sqrt{5}} \left(\frac{1+\sqrt{5}}{2}\right)^n - \frac{3-\sqrt{5}}{2\sqrt{5}} \left(\frac{1-\sqrt{5}}{2}\right)^n.
+      \end{align*}
+    }
+    \case{$n \ge 2$}{
+      Suppose that for $k<n$, $\frac{3+\sqrt{5}}{2\sqrt{5}} \left(\frac{1+\sqrt{5}}{2}\right)^k - \frac{3-\sqrt{5}}{2\sqrt{5}} \left(\frac{1-\sqrt{5}}{2}\right)^k$. Then,
+      \begin{align*}
+        h_n &= h_{n-1} + h_{n-2}\\
+            &= \begin{aligned}
+                &\frac{3+\sqrt{5}}{2\sqrt{5}} \left(\frac{1+\sqrt{5}}{2}\right)^{n-1} - \frac{3-\sqrt{5}}{2\sqrt{5}} \left(\frac{1-\sqrt{5}}{2}\right)^{n-1} +\\
+                &\frac{3+\sqrt{5}}{2\sqrt{5}} \left(\frac{1+\sqrt{5}}{2}\right)^{n-2} - \frac{3-\sqrt{5}}{2\sqrt{5}} \left(\frac{1-\sqrt{5}}{2}\right)^{n-2}
+              \end{aligned}\\
+            &= \left(1 +\frac{1+\sqrt{5}}{2}\right) \frac{3+\sqrt{5}}{2\sqrt{5}} \left(\frac{1+\sqrt{5}}{2}\right)^{n-2} - \left(1 +\frac{1-\sqrt{5}}{2}\right) \frac{3-\sqrt{5}}{2\sqrt{5}} \left(\frac{1-\sqrt{5}}{2}\right)^{n-2}\\
+            &= \frac{3+\sqrt{5}}{2} \cdot \frac{3+\sqrt{5}}{2\sqrt{5}} \left(\frac{1+\sqrt{5}}{2}\right)^{n-2} - \frac{3-\sqrt{5}}{2} \cdot \frac{3-\sqrt{5}}{2\sqrt{5}} \left(\frac{1-\sqrt{5}}{2}\right)^{n-2}\\
+            &= \frac{6+2\sqrt{5}}{4} \cdot \frac{3+\sqrt{5}}{2\sqrt{5}} \left(\frac{1+\sqrt{5}}{2}\right)^{n-2} - \frac{6-2\sqrt{5}}{4} \cdot \frac{3-\sqrt{5}}{2\sqrt{5}} \left(\frac{1-\sqrt{5}}{2}\right)^{n-2}\\
+            &= \frac{1+2\sqrt{5}+\sqrt{5}^2}{4} \cdot \frac{3+\sqrt{5}}{2\sqrt{5}} \left(\frac{1+\sqrt{5}}{2}\right)^{n-2} - \frac{1-2\sqrt{5}+\sqrt{5}^2}{4} \cdot \frac{3-\sqrt{5}}{2\sqrt{5}} \left(\frac{1-\sqrt{5}}{2}\right)^{n-2}\\
+            &= \left(\frac{1+\sqrt{5}}{2}\right)^2 \frac{3+\sqrt{5}}{2\sqrt{5}} \left(\frac{1+\sqrt{5}}{2}\right)^{n-2} - \left(\frac{1-\sqrt{5}}{2}\right)^2 \frac{3-\sqrt{5}}{2\sqrt{5}} \left(\frac{1-\sqrt{5}}{2}\right)^{n-2}\\
+            &= \frac{3+\sqrt{5}}{2\sqrt{5}} \left(\frac{1+\sqrt{5}}{2}\right)^n - \frac{3-\sqrt{5}}{2\sqrt{5}} \left(\frac{1-\sqrt{5}}{2}\right)^n.
+      \end{align*}
+    }
+  \end{caselist}
+\end{proof}
 
 
 \problem{11}{
