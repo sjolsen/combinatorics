@@ -430,7 +430,11 @@ Then, $h_n = n+1$.
 \problem{22}{
   Determine the exponential generating function for the sequence of factorials: $0!, 1!, 2!, 3!, \ldots, n!, \ldots$.
 }
-\incomplete{}
+\begin{align*}
+  g^{(e)}(x) &= \sum_{n=0}^{\infty}{n!\,\frac{x^n}{n!}}\\
+             &= \sum_{n=0}^{\infty}{x^n}\\
+             &= \frac{1}{1-x}.
+\end{align*}
 
 
 \problem{31}{
