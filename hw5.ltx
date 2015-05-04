@@ -268,13 +268,74 @@ Then,
   \begin{align*}
     l_n = l_{n-1} + l_{n-2},\quad(n \ge 2), l_0 = 2, l_1 = 1.
   \end{align*}
-  Prove that
-  \begin{enumerate}[label=(\alph*)]
-  \item $l_n = f_{n-1} + f_{n+1}$ for $n \ge 1$.
-  \item $l_0^2 + l_1^2 + \cdots + l_n^2 = l_nl_{n+1} + 2$ for $n \ge 0$.
-  \end{enumerate}
+  Prove that:
 }
-\incomplete{}
+\subproblem{a}{
+ $l_n = f_{n-1} + f_{n+1}$ for $n \ge 1$.
+}
+\begin{proof}
+  Consider the following cases of $n$:
+  \begin{caselist}
+    \case{$n = 1$}{
+      \begin{align*}
+        l_n &= l_1\\
+            &= 1\\
+            &= 0 + 1\\
+            &= f_0 + f_2\\
+            &= f_{n-1} + f_{n+1}.
+      \end{align*}
+    }
+    \case{$n = 2$}{
+      \begin{align*}
+        l_n &= l_2\\
+            &= 3\\
+            &= 1 + 2\\
+            &= f_1 + f_3\\
+            &= f_{n-1} + f_{n+1}.
+      \end{align*}
+    }
+    \case{$n \ge 3$}{
+      Assume $l_{n-1} = f_{n-2} + f_{n}$ and $l_{n-2} = f_{n-3} + f_{n-1}$. Then,
+      \begin{align*}
+        l_n &= l_{n-1} + l_{n-2}\\
+            &= (f_{n-2} + f_{n}) + (f_{n-3} + f_{n-1})\\
+            &= (f_{n-2} + f_{n-3}) + (f_{n} + f_{n-1})\\
+            &= f_{n-1} + f_{n+1}.
+      \end{align*}
+    }
+  \end{caselist}
+  Then, by weak induction, $l_n = f_{n-1} + f_{n+1}$.
+\end{proof}
+
+\subproblem{b}{
+ $l_0^2 + l_1^2 + \cdots + l_n^2 = l_nl_{n+1} + 2$ for $n \ge 0$.
+}
+\begin{proof}
+  Consider the following cases of $n$:
+  \begin{caselist}
+    \case{$n = 0$}{
+      \begin{align*}
+        l_0^2 &= l_0 \cdot l_0\\
+              &= 2 \cdot 2\\
+              &= 4\\
+              &= 2 \cdot 1 + 2\\
+              &= l_0 l_1 + 2\\
+              &= l_n l_{n+1} + 2.
+      \end{align*}
+    }
+    \case{$n > 0$}{
+      Assume $l_0^2 + \dots + l_{n-1}^2 = l_{n-1}l_n + 2$. Then,
+      \begin{align*}
+        l_0^2 + \dots + l_n^2 &= (l_0^2 + \dots + l_{n-1}^2) + l_n^2\\
+                              &= l_{n-1}l_n + 2 + l_n^2\\
+                              &= (l_{n-1} + l_n)l_n + 2\\
+                              &= (l_{n+1})l_n + 2\\
+                              &= l_nl_{n+1} + 2.
+      \end{align*}
+    }
+  \end{caselist}
+  Then, by weak induction on $n$, $l_0^2 + l_1^2 + \cdots + l_n^2 = l_nl_{n+1} + 2$.
+\end{proof}
 
 
 \problem{12}{
