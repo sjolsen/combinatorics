@@ -369,7 +369,7 @@ Then,
 \begin{align*}
   g(x) &= 1 + cx + c^2x^2 + \cdots + c^nx^n + \cdots\\
        &= 1 + cx + (cx)^2 + \cdots + (cx)^n + \cdots\\
-       &= \frac{1}{1-cx}.
+       &= \answer{\frac{1}{1-cx}}.
 \end{align*}
 
 \subproblem{b}{
@@ -379,7 +379,7 @@ This is equivalent to the previous case with $c=-1$. Then,
 \begin{align*}
   g(x) &= \frac{1}{1-cx}\\
        &= \frac{1}{1-(-1)x}\\
-       &= \frac{1}{1+x}.
+       &= \answer{\frac{1}{1+x}}.
 \end{align*}
 
 
@@ -409,9 +409,9 @@ Then,
        &= \frac{1}{(1-x)^2}\\
        &= \sum_{n=0}^{\infty}{{n+2-1 \choose 2-1}x^n}\\
        &= \sum_{n=0}^{\infty}{{n+1 \choose 1}x^n}\\
-       &= \sum_{n=0}^{\infty}{(n+1)x^n}.
+       &= \answer{\sum_{n=0}^{\infty}{(n+1)x^n}}.
 \end{align*}
-Then, $h_n = n+1$.
+Then, $\answer{h_n = n+1}$.
 
 
 \problem{19}{
@@ -423,7 +423,7 @@ Then, $h_n = n+1$.
        &= 1 + 0 + \sum_{n=0}^{\infty}{{n+2 \choose 2}x^{n+2}}\\
        &= 1 + x^2 \sum_{n=0}^{\infty}{{n+2 \choose 2}x^n}\\
        &= 1 + x^2 \sum_{n=0}^{\infty}{{n+3-1 \choose 3-1}x^n}\\
-       &= 1 + \frac{x^2}{(1-x)^3}.
+       &= \answer{1 + \frac{x^2}{(1-x)^3}}.
 \end{align*}
 
 
@@ -433,14 +433,53 @@ Then, $h_n = n+1$.
 \begin{align*}
   g^{(e)}(x) &= \sum_{n=0}^{\infty}{n!\,\frac{x^n}{n!}}\\
              &= \sum_{n=0}^{\infty}{x^n}\\
-             &= \frac{1}{1-x}.
+             &= \answer{\frac{1}{1-x}}.
 \end{align*}
 
 
 \problem{31}{
   Solve the recurrence relation $h_n = 4h_{n-2}, (n \ge 2)$ with initial values $h_0 = 0$ and $h_1 = 1$.
 }
-\incomplete{}
+The generating function for $h$ is given by
+\begin{align*}
+  g(x) &= 0 + x + 0 + 4x^3 + 0 + 16x^5 + 0 + 64x^7\cdots\\
+       &= 4^0x^1 + 4^1x^3 + 4^2x^5 + 4^3x^7 + \cdots\\
+       &= \sum_{i=0}^{\infty}{4^ix^{2i+1}}\\
+       &= \sum_{i=0}^{\infty}{2^{2i}x^{2i+1}}\\
+       &= x \sum_{i=0}^{\infty}{(2x)^{2i}}\\
+       &= x \sum_{i=0}^{\infty}{(4x^2)^i}\\
+       &= \frac{x}{1-4x^2}\\
+       &= \frac{x}{(1-2x)(1+2x)}.
+\end{align*}
+Performing partial fraction decomposition:
+\begin{align*}
+  \frac{x}{(1-2x)(1+2x)} &= \frac{A}{1-2x} + \frac{B}{1+2x}\\
+  x &= A(1+2x) + B(1-2x)\\
+                         &= A + 2Ax + B - 2Bx\\
+                         &= (A + B) + (2A - 2B)x\\
+  0 &= (A+B) + (2A - 2B - 1)x
+\end{align*}
+yields the system of equations
+\begin{align*}
+  A + B &= 0\\
+  A - B &= \frac{1}{2},
+\end{align*}
+which has the solution
+\begin{align*}
+  A &= \frac{1}{4}\\
+  B &= -\frac{1}{4}.
+\end{align*}
+
+Then,
+\begin{align*}
+  g(x) &= \frac{1}{4} \cdot \left( \frac{1}{1-2x} - \frac{1}{1+2x} \right)\\
+       &= 2^{-2} \cdot \left( \sum_{n=0}^{\infty}{(2x)^n} - \sum_{n=0}^{\infty}{(-2x)^n} \right)\\
+       &= 2^{-2} \cdot \sum_{n=0}^{\infty}{(2^n - (-2)^n)x^n}\\
+       &= \cdot \sum_{n=0}^{\infty}{(2^{-2}2^n - 2^{-2}(-2)^n)x^n}\\
+       &= \cdot \sum_{n=0}^{\infty}{(2^{-2}2^n - (-2)^{-2}(-2)^n)x^n}\\
+       &= \cdot \sum_{n=0}^{\infty}{(2^{n-2} - (-2)^{n-2})x^n},
+\end{align*}
+so $\answer{h_n = 2^{n-2} - (-2)^{n-2}}$.
 
 
 \problem{42}{
