@@ -64,13 +64,16 @@
   We proceed in two parts:
   \begin{caselist}
     \case{$n \divides m \implies f_n \divides f_m$}{
-      Assume $n \divides m$; then, we have some integer $p \ge 1$ such that $m = p \cdot n$. We proceed by induction on $p$:
+      Assume $n \divides m$; then, we have some $p \in \bn$ such that $m = p \cdot n$. We proceed by induction on $p$:
       \begin{caselist}
-        \case{$p=1$}{
-          Since $p=1$, $n=m$. Since $0 \ndivides 0$, then, $n$ (and $m$) is greater than zero, and so $f_n=f_m$ is greater than zero. Then, $f_n \divides f_m$.
+        \case{$p=0$}{
+          Since $p=0$, $m=0$, and $f_m=0$. Then, $f_m = 0 \cdot f_n$, so $f_n \divides f_m$.
         }
-        \case{$p>1$}{
-          Assume $f_n \divides f_{(p-1)n}$; then, there is some $q \ge 1$ such that $f_{(p-1)n} = q \cdot f_n$. Then,
+        \case{$p=1$}{
+          Since $p=1$, $n=m$, and $f_n=f_m$. Then, $f_m = 1 \cdot f_n$, so $f_n \divides f_m$.
+        }
+        \case{$p \ge 2$}{
+          Assume $f_n \divides f_{(p-1)n}$; then, there is some $q \in \bn$ such that $f_{(p-1)n} = q \cdot f_n$. Further, because $n$ is nonzero and $p>1$, $m>0$. Then,
           \begin{align*}
             f_{m} &= f_{m-n+1} \cdot f_n + f_{m-n} \cdot f_{n-1}\quad(\text{by Lemma \ref{f-combination}})\\
                   &= f_{m-n+1} \cdot f_n + f_{(p-1)n} \cdot f_{n-1}\\
@@ -80,7 +83,7 @@
           and so $f_n \divides f_m$.
         }
       \end{caselist}
-      Then, by weak induction on p, we have $n \divides m \implies f_n \divides f_m$.
+      Then, by weak induction on $p$, we have $n \divides m \implies f_n \divides f_m$.
     }
     \case{$f_n \divides f_m \implies n \divides m$}{
       Suppose $n \ndivides m$. Then, there are integers $q$ and $r$ such that $0 < r < n$ and $m = q \cdot n + r$. We proceed by induction on $q$:
