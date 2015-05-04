@@ -407,7 +407,8 @@ Then,
   g(x) &= (1 + x^2 + x^4 + \cdots) (1 + x + x^2) (1 + x^3 + x^6 + \cdots) (1 + x)\\
        &= \frac{1}{1-x^2} \cdot \frac{1-x^3}{1-x} \cdot \frac{1}{1-x^3} \cdot \frac{1-x^2}{1-x}\\
        &= \frac{1}{(1-x)^2}\\
-       &= \sum_{n=0}^{\infty}{{n+1 \choose n}x^n}\\
+       &= \sum_{n=0}^{\infty}{{n+2-1 \choose 2-1}x^n}\\
+       &= \sum_{n=0}^{\infty}{{n+1 \choose 1}x^n}\\
        &= \sum_{n=0}^{\infty}{(n+1)x^n}.
 \end{align*}
 Then, $h_n = n+1$.
