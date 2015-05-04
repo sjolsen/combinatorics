@@ -417,7 +417,14 @@ Then, $h_n = n+1$.
 \problem{19}{
   Let $h_0, h_1, h_2, \ldots, h_n, \ldots$ be the sequence defined by $h_n = {n \choose 2}, (n \ge 0)$. Determine the generating function for the sequence.
 }
-\incomplete{}
+\begin{align*}
+  g(x) &= \sum_{n=0}^{\infty}{{n \choose 2}x^n}\\
+       &= {0 \choose 2}x^0 + {1 \choose 2}x^1 + \sum_{n=2}^{\infty}{{n \choose 2}x^n}\\
+       &= 1 + 0 + \sum_{n=0}^{\infty}{{n+2 \choose 2}x^{n+2}}\\
+       &= 1 + x^2 \sum_{n=0}^{\infty}{{n+2 \choose 2}x^n}\\
+       &= 1 + x^2 \sum_{n=0}^{\infty}{{n+3-1 \choose 3-1}x^n}\\
+       &= 1 + \frac{x^2}{(1-x)^3}.
+\end{align*}
 
 
 \problem{22}{
