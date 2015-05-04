@@ -345,7 +345,19 @@ Then,
   \end{align*}
   Show that $h_n = h_{n-1} + 3n^2 - 3n + 1$ is the recurrence relation for the sequence.
 }
-\incomplete{}
+\begin{proof}
+  \begin{align*}
+    h_n &= n^3\\
+        &= n^3 + (3n^2 - 3n + 1) - (3n^2 - 3n + 1)\\
+        &= (n^3 - 3n^2 + 3n - 1) + 3n^2 - 3n + 1\\
+        &= (n^3-2n^2+n - n^2 + 2n - 1) + 3n^2 - 3n + 1\\
+        &= (n^3-2n^2+n - (n^2-2n+1)) + 3n^2 - 3n + 1\\
+        &= (n^2-2n+1) \cdot (n-1) + 3n^2 - 3n + 1\\
+        &= (n-1)^2 \cdot (n-1) + 3n^2 - 3n + 1\\
+        &= (n-1)^3 + 3n^2 - 3n + 1\\
+        &= h_{n-1} + 3n^2 - 3n + 1.
+  \end{align*}
+\end{proof}
 
 
 \problem{13}{%a,b
