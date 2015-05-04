@@ -73,9 +73,9 @@
           Since $p=1$, $n=m$, and $f_n=f_m$. Then, $f_m = 1 \cdot f_n$, so $f_n \divides f_m$.
         }
         \case{$p \ge 2$}{
-          Assume $f_n \divides f_{(p-1)n}$; then, there is some $q \in \bn$ such that $f_{(p-1)n} = q \cdot f_n$. Further, because $n$ is nonzero and $p>1$, $m>0$. Then,
+          Assume $f_n \divides f_{(p-1)n}$; then, there is some $q \in \bn$ such that $f_{(p-1)n} = q \cdot f_n$. Further, because $n$ is nonzero and $p>1$, $m>0$. Then, by application of Lemma \ref{f-combination},
           \begin{align*}
-            f_{m} &= f_{m-n+1} \cdot f_n + f_{m-n} \cdot f_{n-1}\quad(\text{by Lemma \ref{f-combination}})\\
+            f_{m} &= f_{m-n+1} \cdot f_n + f_{m-n} \cdot f_{n-1}\\
                   &= f_{m-n+1} \cdot f_n + f_{(p-1)n} \cdot f_{n-1}\\
                   &= f_{m-n+1} \cdot f_n + q \cdot f_n \cdot f_{n-1}\\
                   &= (f_{m-n+1} + q \cdot f_{n-1}) \cdot f_n,
