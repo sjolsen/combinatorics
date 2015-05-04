@@ -362,12 +362,25 @@ Then,
 
 \problem{13}{%a,b
   Determine the generating function for each of the following sequences:
-  \begin{enumerate}[label=(\alph*)]
-  \item $c^0 = 1, c, c^2, \ldots, c^n, \ldots$
-  \item $1, -1, 1, -1, \ldots, (-1)^n, \ldots$
-  \end{enumerate}
 }
-\incomplete{}
+\subproblem{a}{
+  $c^0 = 1, c, c^2, \ldots, c^n, \ldots$
+}
+\begin{align*}
+  g(x) &= 1 + cx + c^2x^2 + \cdots + c^nx^n + \cdots\\
+       &= 1 + cx + (cx)^2 + \cdots + (cx)^n + \cdots\\
+       &= \frac{1}{1-cx}.
+\end{align*}
+
+\subproblem{b}{
+  $1, -1, 1, -1, \ldots, (-1)^n, \ldots$
+}
+This is equivalent to the previous case with $c=-1$. Then,
+\begin{align*}
+  g(x) &= \frac{1}{1-cx}\\
+       &= \frac{1}{1-(-1)x}\\
+       &= \frac{1}{1+x}.
+\end{align*}
 
 
 \problem{16}{
