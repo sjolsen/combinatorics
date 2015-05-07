@@ -64,6 +64,7 @@
 \newcommand{\answer}[1]{\boxed{#1}}
 \newcommand{\compl}[1]{\overline{#1}}
 \newcommand{\bn}{\mathbb{N}}
+\newcommand{\bz}{\mathbb{Z}}
 
 \newcommand{\incomplete}[1]{%
   {\it Incomplete.}

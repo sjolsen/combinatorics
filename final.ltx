@@ -1,0 +1,170 @@
+\documentclass{homework}
+\usepackage{fullpage}
+\usepackage[super]{nth}
+
+\title{MATH 4350 -- Final Exam}
+\author{Stuart Olsen}
+\date{May 11, 2015}
+
+\begin{document}
+\maketitle
+
+
+
+\section*{Part I}
+\problem{1}{Let $S = \{1, 2, 3, 4, 5, 6\}$.}
+\subproblem{a}{How many $3$-permutations of $S$ are there?}
+\subproblem{b}{How many $3$-combinations of $S$ are there?}
+\subproblem{c}{How many cyclic $3$-permutations of $S$ are there?}
+
+
+
+\problem{2}{Let $S = \{a, a, b, b, b, c\}$.}
+\subproblem{a}{How many $3$-permutations of $S$ are there?}
+\subproblem{b}{How many $3$-combinations of $S$ are there?}
+
+
+
+\problem{3}{
+  Use the pigeonhole principle to show that if there are $13$ students in a class then at least $4$ students get the same grade (assume the only grades assigned are A, B, C, D, or F).
+}
+
+
+
+\problem{4}{State the Binomial Theorem and use it to expand $(x+y)^3$.}
+
+
+
+\problem{5}{Evaluate ${6 \choose 3\ 2\ 1}$.}
+
+
+
+\problem{6}{
+  $100$ people are surveyed and asked if they are planning on purchasing a laptop or a PC during the next year. Of the people surveyed, $40$ people are planning on buying a laptop and $30$ are planning on buying a PC, while $10$ are planning on buying both. State the Principle of Inclusion-Exclusion for $2$ sets and use it to determine how many people are planning on buying neither a laptop nor a PC.
+}
+
+
+
+\problem{7}{
+  Determine the generating function and the exponential generating function for the sequence $\{1, 1, 1, 1, \ldots\}$. Make sure to label both.
+}
+
+
+
+\problem{8}{Answer the following for the sequence $h_n = n^2$.}
+\subproblem{a}{Find the difference sequence of $h_n$ using $n \in \{0, 1, 2, 3 ,4\}$.}
+\subproblem{b}{Using the $\nth{0}$ diagonal, determine the Stirling numbers of the second kind $S(2,0)$, $S(2,1)$, and $S(2,2)$.}
+
+
+
+\problem{9}{Find the Stirling numbers of the first kind $s(2,0)$, $s(2,1)$, and $s(2,2)$ by expanding $(n)_{(2)}$.}
+
+
+
+\problem{10}{
+  Let $\mathcal{A} = \{A_1, A_2, A_3, A_4\}$, where
+  \begin{align*}
+    A_1 &= \{a, c, d\};\\
+    A_2 &= \{a, b, c\};\\
+    A_3 &= \{a, d\};\\
+    A_4 &= \{a, b, d\}.
+  \end{align*}
+  List an SDR for $\mathcal{A}$.
+}
+
+
+
+\problem{11}{
+  Create an addition and multiplication table for $\bz_4$. List the identities for each operation. Explain which operation is a Latin square. Explain which operation does not have an inverse.
+}
+
+
+
+\problem{12}{Is there a BIBD with parameters $b=6$, $k=6$, $v=11$, $r=4$, and some $\lambda$?}
+
+
+
+\section*{Part II}
+\problem{1}{
+  Using the Principle of Inclusion-Exclusion, find the number of integral solutions to
+  \begin{align*}
+    x_1 + x_2 + x_3 = 3
+  \end{align*}
+  given $1 \le x_1 \le 3$, $0 \le x_2 \le 1$, and $0 \le x_3 \le 1$.
+}
+
+
+
+\problem{2}{
+  You wish to make a fruit basket consisting of apples, oranges, and bananas. Find the generating function whose coefficients determine the number of fruit baskets with $n$ pieces of fruit given that there must be between $1$ and $3$ apples, at most $1$ orange, and at most $1$ banana. Use your result to determine the number of fruit baskets containing exactly $3$ pieces of fruit.
+}
+
+
+
+\problem{3}{
+  Using the method indicated, count the number of ways to color an $n \times 1$ board with colors RED and BLUE such that at least one square must be BLUE.
+}
+\subproblem{a}{By basic counting principles and counting the complement.}
+\subproblem{b}{
+  By finding the exponential generating function for $h_n$, which is equal to the number of ways to color an $n \times 1$ board with colors RED and BLUE such that at least one square must be BLUE.
+}
+
+
+
+\problem{4}{Find a closed form for $h_n = 3h_{n-1} - 2h_{n-2}$ given the initial values $h_0 = 0$ and $h_1 = 1$ using the indicated method.}
+\subproblem{a}{Suppose $h_n = q^n$.}
+\subproblem{b}{Use generating function $g(x) = h_0 + h_1x + h_2x^2 + \cdots$ and sum multiples of $g$ to produce the homogeneous recursion.}
+
+
+
+\problem{5}{
+  Let $\mathcal{A} = \{A_1, A_2, A_3, A_4, A_5\}$, where
+  \begin{align*}
+    A_1 &= \{a, c, d\};\\
+    A_2 &= \{a, c\};\\
+    A_3 &= \{a, d\};\\
+    A_4 &= \{a, b, d\};\\
+    A_5 &= \{c, d\}.
+  \end{align*}
+  Determine whether $\mathcal{A}$ has an SDR using the Marriage Condition.
+}
+
+
+
+\problem{6}{Which block, $B_1 = \{3, 4, 6\}$ or $B_2 = \{0, 3, 4\}$, generates a BIBD over $\bz_7$?}
+
+
+
+\problem{7}{
+  Answer the following for
+  \begin{align*}
+    L = \begin{bmatrix}
+      0 & 1 & 2\\
+      1 & 2 & 0\\
+      2 & 0 & 1
+    \end{bmatrix}.
+  \end{align*}
+}
+\subproblem{a}{Verify $L$ is a Latin square using the matrices $R_3$ and $S_3$.}
+\subproblem{b}{Show $L$ is in the $L_3^r$ family and determine $r$.}
+\subproblem{c}{Find a Latin square orthogonal to $L$ and verify orthogonality.}
+
+
+
+\problem{8}{
+  Prove Pascal's Formula:
+  \begin{align*}
+    {n \choose k} = {n - 1 \choose k} + {n - 1 \choose k - 1}
+  \end{align*}
+  using the following proof methods.
+}
+\subproblem{a}{Algebraic proof.}
+\subproblem{a}{Combinatorial proof.}
+
+
+
+\problem{9}{Let $h_n = n^p$. Using induction, show that $\Delta^{p+1}(h_n) = 0$ for all $n$.}
+
+
+
+\end{document}
