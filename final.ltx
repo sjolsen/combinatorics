@@ -102,7 +102,16 @@ Then,
 \problem{6}{
   $100$ people are surveyed and asked if they are planning on purchasing a laptop or a PC during the next year. Of the people surveyed, $40$ people are planning on buying a laptop and $30$ are planning on buying a PC, while $10$ are planning on buying both. State the Principle of Inclusion-Exclusion for $2$ sets and use it to determine how many people are planning on buying neither a laptop nor a PC.
 }
-\incomplete{}
+The Inclusion-Exclusion Principle for two subsets $A_1$ and $A_2$ of $S$ is
+\begin{align*}
+  \card{\compl{A_1} \cap \compl{A_2}} &= \card{S} - (\card{A_1} + \card{A_2}) + \card{A_1 \cap A_2}.
+\end{align*}
+Then, if we let $S$ be the set of people surveyed, $A_1$ the set of those planning on buying a laptop, and $A_2$ the set of those planning on buying a PC, the number of people planning on buying neither a laptop nor a PC is given by
+\begin{align*}
+  \card{\compl{A_1} \cap \compl{A_2}} &= \card{S} - (\card{A_1} + \card{A_2}) + \card{A_1 \cap A_2}\\
+  &= 100 - (40 + 30) + 10\\
+  &= \answer{40}.
+\end{align*}
 
 
 
