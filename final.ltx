@@ -196,14 +196,33 @@ or
   \end{align*}
   List an SDR for $\mathcal{A}$.
 }
-\incomplete{}
+$\answer{\{c, b, d, a\}}$.
 
 
 
 \problem{11}{
   Create an addition and multiplication table for $\bz_4$. List the identities for each operation. Explain which operation is a Latin square. Explain which operation does not have an inverse.
 }
-\incomplete{}
+\begin{center}
+  \begin{tabular}{c|cccc}
+    ${\oplus}$ & $0$ & $1$ & $2$ & $3$\\
+    \hline
+           $0$ & $0$ & $1$ & $2$ & $3$\\
+           $1$ & $1$ & $2$ & $3$ & $0$\\
+           $2$ & $2$ & $3$ & $0$ & $1$\\
+           $3$ & $3$ & $0$ & $1$ & $2$\\
+  \end{tabular}\quad\quad
+  \begin{tabular}{c|cccc}
+    ${\otimes}$ & $0$ & $1$ & $2$ & $3$\\
+    \hline
+            $0$ & $0$ & $0$ & $0$ & $0$\\
+            $1$ & $0$ & $1$ & $2$ & $3$\\
+            $2$ & $0$ & $2$ & $0$ & $2$\\
+            $3$ & $0$ & $3$ & $2$ & $1$\\
+  \end{tabular}
+\end{center}
+
+The identity of ${\oplus}$ is $\answer{0}$ and that of ${\otimes}$ is $\answer{1}$. ${\otimes}$ does not have an inverse, as there is no $x \in \bz_4$ such that $2 \otimes x = 1$.
 
 
 
