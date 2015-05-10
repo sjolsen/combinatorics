@@ -162,7 +162,27 @@ so
 
 
 \problem{9}{Find the Stirling numbers of the first kind $s(2,0)$, $s(2,1)$, and $s(2,2)$ by expanding $\fall{n}{2}$.}
-\incomplete{}
+We are given:
+\begin{align*}
+  \fall{n}{p} = \sum_{k=0}^p{(-1)^{p-k}s(p,k)n^k}.
+\end{align*}
+Then,
+\begin{align*}
+  \fall{n}{p} &= n(n-1)\\
+  &= n^2 - n,
+\end{align*}
+so
+\begin{align*}
+  (-1)^2s(2,0)n^0 &= 0;\\
+  (-1)^1s(2,1)n^1 &= -n;\\
+  (-1)^0s(2,2)n^2 &= n^2
+\end{align*}
+or
+\begin{align*}
+  s(2,0) &= 0;\\
+  s(2,1) &= 1;\\
+  s(2,2) &= 1.
+\end{align*}
 
 
 
