@@ -65,6 +65,7 @@
 \newcommand{\compl}[1]{\overline{#1}}
 \newcommand{\bn}{\mathbb{N}}
 \newcommand{\bz}{\mathbb{Z}}
+\newcommand{\fall}[2]{\left[#1\right]_{#2}}
 
 \newcommand{\incomplete}[1]{%
   {\it Incomplete.}
