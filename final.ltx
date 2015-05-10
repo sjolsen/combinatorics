@@ -68,7 +68,9 @@ Let $f(r,S)$ denote the number of $r$-permutations of the multiset $S$. Then,
 \problem{3}{
   Use the pigeonhole principle to show that if there are $13$ students in a class then at least $4$ students get the same grade (assume the only grades assigned are A, B, C, D, or F).
 }
-\incomplete{}
+This is not the case; it is possible, for example, for $3$ students to receive an A, $3$ students to receive a B, $3$ students to receive a C, $3$ students to receive a D, and one student to receive an F.
+
+If, however, the only grades assigned are A, B, C, and F, we can interpret grades as boxes and students' individual grades as objects to be placed in those boxes. Then, by the strong form of the Pigeonhole Principle, in distributing $4 + 4 + 4 + 4 - 4 + 1 = 13$ objects into four boxes (that is, assigning one of four grades to each of $13$ students), we are guaranteed that at least four objects (students) are assigned to some box (grade).
 
 
 
