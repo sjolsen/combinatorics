@@ -245,7 +245,39 @@ which is false. Therefore, there is no such BIBD.
   \end{align*}
   given $1 \le x_1 \le 3$, $0 \le x_2 \le 1$, and $0 \le x_3 \le 1$.
 }
-\incomplete{}
+Let
+\begin{align*}
+  y_1 &= x_1 - 1;\\
+  y_2 &= x_2;\\
+  y_3 &= x_3.
+\end{align*}
+Then, the given problem is equivalent to finding the number of integral solutions to
+\begin{align}
+  y_1 + y_2 + y_3 = 2 \label{eq:II1y}
+\end{align}
+where
+\begin{align*}
+  0 \le\ &y_1 \le 2;\\
+  0 \le\ &y_2 \le 1;\\
+  0 \le\ &y_3 \le 1.
+\end{align*}
+
+Let $S$ be the set of non-negative integral solutions to Equation~\eqref{eq:II1y}. Then, $\card{S} = {2 + 3 - 1 \choose 2} = {4 \choose 2} = 6$. For each $i$ in $\{1,2,3\}$, let $A_i \subseteq S$ be the set of solutions wherein the above constraint on $y_i$ does not hold. Then, the solution to the given problem is given by
+\begin{align*}
+  \card{\compl{A_1} \cap \compl{A_2} \cap \compl{A_3}} &= \card{S}\\
+                                                       &- (\card{A_1} + \card{A_2} + \card{A_3})\\
+                                                       &+ (\card{A_1 \cap A_2} + \card{A_1 \cap A_3} + \card{A_2 \cap A_3})\\
+&- (\card{A_1 \cap A_2 \cap A_3}).
+\end{align*}
+Note that $\card{A_1} = 0$. Then,
+\begin{align*}
+  \card{\compl{A_1} \cap \compl{A_2} \cap \compl{A_3}} &= \card{S} - (\card{A_2} + \card{A_3}) + \card{A_2 \cap A_3}.
+\end{align*}
+Because there are only $2$ units to distribute among $y_1$, $y_2$, and $y_3$, there is only one solution in which $y_2 \nleq 1$: that in which $y_1 = 0$, $y_2 = 2$, and $y_3 = 0$. Therefore, $\card{A_2} = 1$, and by the same reasoning, $\card{A_3} = 1$. Similarly, to satisfy $y_2 \nleq 1$ and $y_3 \nleq 1$ would require at least $4$ units to distribute. Therefore, $\card{A_2 \cap A_3} = 0$. Thus,
+\begin{align*}
+  \card{\compl{A_1} \cap \compl{A_2} \cap \compl{A_3}} &= 6 - (1 + 1) + 0\\
+                                                       &= \answer{4}.
+\end{align*}
 
 
 
