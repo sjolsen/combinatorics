@@ -305,7 +305,8 @@ Thus, there are $\answer{4}$ ways to make a basket containing exactly $3$ pieces
   Using the method indicated, count the number of ways to color an $n \times 1$ board with colors RED and BLUE such that at least one square must be BLUE.
 }
 \subproblem{a}{By basic counting principles and counting the complement.}
-\incomplete{}
+Because there are $n$ squares and each square may receive one of two colors, there are $2^n$ ways to color the board without restrictions. The complement of the given set of restrictions is simply that no square is BLUE, i.e. that every square is RED; there is one way of meeting this restriction. Thus, there are $2^n - 1$ ways to color an $n \times 1$ board with colors RED and BLUE such that at least one square is BLUE.
+
 \subproblem{b}{
   By finding the exponential generating function for $h_n$, which is equal to the number of ways to color an $n \times 1$ board with colors RED and BLUE such that at least one square must be BLUE.
 }
