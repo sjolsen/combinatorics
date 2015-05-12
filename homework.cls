@@ -99,3 +99,9 @@
 
     {#2}%
 }
+
+%% Colors
+\PassOptionsToPackage{usenames,dvipsnames}{color}
+\RequirePackage{xcolor}
+\newcommand{\greyout}[1]{{\color{gray}#1}}
+\newcommand{\ungreyout}[1]{{\color{black}#1}}

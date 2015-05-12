@@ -561,7 +561,48 @@ Consider $r=1$:
 \end{align*}
 
 \subproblem{c}{Find a Latin square orthogonal to $L$ and verify orthogonality.}
-\incomplete{}
+We construct a Latin square $M$ orthogonal to $L$ by considering $L \times M$. First, we populate the first component of each element:
+\begin{align*}
+  L \times M = \begin{bmatrix}
+    \greyout{(\ungreyout{0}, \_)} & \greyout{(\ungreyout{1}, \_)} & \greyout{(\ungreyout{2}, \_)}\\
+    \greyout{(\ungreyout{1}, \_)} & \greyout{(\ungreyout{2}, \_)} & \greyout{(\ungreyout{0}, \_)}\\
+    \greyout{(\ungreyout{2}, \_)} & \greyout{(\ungreyout{0}, \_)} & \greyout{(\ungreyout{1}, \_)}
+  \end{bmatrix}.
+\end{align*}
+For $M$ to be orthogonal to $L$, it is necessary that each pair in $L \times M$ whose first element is $0$ have a distinct second element:
+\begin{align*}
+  L \times M = \begin{bmatrix}
+    \greyout{(0, \ungreyout{0})} & \greyout{(1, \_)} & \greyout{(2, \_)}\\
+    \greyout{(1, \_)} & \greyout{(2, \_)} & \greyout{(0, \ungreyout{1})}\\
+    \greyout{(2, \_)} & \greyout{(0, \ungreyout{2})} & \greyout{(1, \_)}
+  \end{bmatrix}.
+\end{align*}
+Because $a_{00}=(0,0)$ and $a_{21}=(0,2)$, the second component of $a_{01}$ must be $1$. Similarly, the second components of $a_{01}$ and $a_{22}$ must be $2$ and $0$, respectively:
+\begin{align*}
+  L \times M = \begin{bmatrix}
+    \greyout{(0, 0)} & \greyout{(1, \ungreyout{1})} & \greyout{(2, \_)}\\
+    \greyout{(1, \ungreyout{2})} & \greyout{(2, \_)} & \greyout{(0, 1)}\\
+    \greyout{(2, \_)} & \greyout{(0, 2)} & \greyout{(1, \ungreyout{0})}
+  \end{bmatrix}.
+\end{align*}
+We complete the square by populating the diagonal:
+\begin{align*}
+  L \times M = \begin{bmatrix}
+    \greyout{(0, 0)} & \greyout{(1, 1)} & \greyout{(2, \ungreyout{2})}\\
+    \greyout{(1, 2)} & \greyout{(2, \ungreyout{0})} & \greyout{(0, 1)}\\
+    \greyout{(2, \ungreyout{1})} & \greyout{(0, 2)} & \greyout{(1, 0)}
+  \end{bmatrix}.
+\end{align*}
+Thus, we have
+\begin{align*}
+  M = \begin{bmatrix}
+    0 & 1 & 2\\
+    2 & 0 & 1\\
+    1 & 2 & 0
+  \end{bmatrix}.
+\end{align*}
+
+Because each element of $\bz_3$ occurs exactly once in each row and column of $M$ and each element of $\bz_3 \times \bz_3$ occurs exactly once in $L \times M$, $M$ is a Latin square orthogonal to $L$.
 
 
 
