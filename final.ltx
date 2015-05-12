@@ -332,7 +332,41 @@ Therefore, $h_n = \answer{2^n-1}$.
 
 \problem{4}{Find a closed form for $h_n = 3h_{n-1} - 2h_{n-2}$ given the initial values $h_0 = 0$ and $h_1 = 1$ using the indicated method.}
 \subproblem{a}{Suppose $h_n = q^n$.}
-\incomplete{}
+We have
+\begin{align*}
+  q^n &= 3q^{n-1} - 2q^{n-2}\\
+  (q^2)q^{n-2} &= (3q)q^{n-2} - 2q^{n-2}\\
+  q^2 &= 3q - 2\\
+  q^2 - 3q + 2 &= 0.
+\end{align*}
+Then,
+\begin{align*}
+  q &= \frac{3 \pm \sqrt{9 - 8}}{2}\\
+    &= \frac{3 \pm 1}{2}\\
+    &= 1, 2.
+\end{align*}
+Then, there are some $c_0$ and $c_1$ such that
+\begin{align*}
+  h_n &= c_0 2^n + c_1 1^n\\
+      &= c_0 2^n + c_1.
+\end{align*}
+Then, solving the system of linear equations
+\begin{align*}
+  \begin{cases}
+    (n=0) & c_0 + c_1 = 0\\
+    (n=1) & 2c_0 + c_1 = 1
+  \end{cases}
+\end{align*}
+yields
+\begin{align*}
+  c_0 &= 1;\\
+  c_1 &= -1.
+\end{align*}
+Thus,
+\begin{align*}
+  \answer{h_n = 2^n - 1}.
+\end{align*}
+
 \subproblem{b}{Use generating function $g(x) = h_0 + h_1x + h_2x^2 + \cdots$ and sum multiples of $g$ to produce the homogeneous recursion.}
 \incomplete{}
 
