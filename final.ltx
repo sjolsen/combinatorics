@@ -627,8 +627,10 @@ Because each element of $\bz_3$ occurs exactly once in each row and column of $M
   \end{align*}
 \end{proof}
 
-\subproblem{a}{Combinatorial proof.}
-\incomplete{}
+\subproblem{b}{Combinatorial proof.}
+\begin{proof}
+  Given some set $S$ of cardinality $n$ and some special $x \in S$, there are two ways to choose $k$ objects from $S$: by choosing $x$ and $k-1$ objects not equal to $x$; and choosing $k$ objects not equal to $x$. Since there is only one way to choose $x$ and there are $n-1$ other objects, there are ${n-1 \choose k-1}$ to do the former; and there are ${n-1 \choose k}$ ways to do the latter. Thus, ${n \choose k}$, the number of ways to choose $k$ objects from $S$, is equal to ${n - 1 \choose k} + {n - 1 \choose k - 1}$.
+\end{proof}
 
 
 
