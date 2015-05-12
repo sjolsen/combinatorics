@@ -284,7 +284,20 @@ Because there are only $2$ units to distribute among $y_1$, $y_2$, and $y_3$, th
 \problem{2}{
   You wish to make a fruit basket consisting of apples, oranges, and bananas. Find the generating function whose coefficients determine the number of fruit baskets with $n$ pieces of fruit given that there must be between $1$ and $3$ apples, at most $1$ orange, and at most $1$ banana. Use your result to determine the number of fruit baskets containing exactly $3$ pieces of fruit.
 }
-\incomplete{}
+We have
+\begin{align*}
+  g_{apple}(x) &= x + x^2 + x^3\\
+  g_{orange}(x) &= 1 + x\\
+  g_{banana}(x) &= 1 + x.
+\end{align*}
+Combining yields
+\begin{align*}
+  g(x) &= (x + x^2 + x^3)(1 + x)(1 + x)\\
+       &= (x + x^2 + x^3)(1 + 2x + x^2)\\
+       &= x + 2x^2 + x^3 + x^2 + 2x^3 + x^4 + x^3 + 2x^4 + x^5\\
+       &= x + 3x^2 + 4x^3 + 3x^4 + x^5.
+\end{align*}
+Thus, there are $\answer{4}$ ways to make a basket containing exactly $3$ pieces of fruit.
 
 
 
