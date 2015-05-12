@@ -368,7 +368,71 @@ Thus,
 \end{align*}
 
 \subproblem{b}{Use generating function $g(x) = h_0 + h_1x + h_2x^2 + \cdots$ and sum multiples of $g$ to produce the homogeneous recursion.}
-\incomplete{}
+We have
+\begin{align*}
+  h_n - 3h_{n-1} + 2h_{n-2} = 0.
+\end{align*}
+Then, noting
+\begin{align*}
+  g(x) &= \sum_{n=0}^\infty{h_nx^n}\\
+       &= h_0 + h_1x + \sum_{n=2}^\infty{h_nx^n};
+\end{align*}
+\begin{align*}
+  -3xg(x) &= -3x\sum_{n=0}^\infty{h_nx^n}\\
+       &= \sum_{n=0}^\infty{-3h_nx^{n+1}}\\
+       &= -3h_0x + \sum_{n=1}^\infty{-3h_nx^{n+1}}\\
+       &= -3h_0x + \sum_{n=2}^\infty{-3h_{n-1}x^n};
+\end{align*}
+\begin{align*}
+  2x^2g(x) &= 2x^2\sum_{n=0}^\infty{h_nx^n}\\
+       &= \sum_{n=0}^\infty{2h_nx^{n+2}}\\
+       &= \sum_{n=2}^\infty{2h_{n-2}x^n},
+\end{align*}
+we have
+\begin{align*}
+  g(x) - 3xg(x) + 2x^2g(x) &= h_0 + h_1x - 3h_0x + \sum_{n=2}^\infty{(h_n - 3h_{n-1} + 2h_{n-2})x^n}\\
+  (1 - 3x + 2x^2)g(x) &= h_0 + h_1x - 3h_0x + \sum_{n=2}^\infty{(0)x^n}\\
+                           &= 0 + x - 0 + 0\\
+                           &= x,
+\end{align*}
+so
+\begin{align*}
+  g(x) &= \frac{x}{1 - 3x + 2x^2}\\
+       &= \frac{x}{(2x-1)(x-1)}.
+\end{align*}
+Proceeding with partial fraction decomposition:
+\begin{align*}
+  g(x) &= \frac{x}{(2x-1)(x-1)}\\
+       &= \frac{A}{2x-1} + \frac{B}{x-1}\\
+  x &= A(x-1) + B(2x-1)\\
+       &= Ax - A + 2Bx - B\\
+       &= (A + 2B)x - (A + B)\\
+  0 &= (A + 2B - 1)x - (A + B)\\
+  A + B &= (A + 2B - 1)x
+\end{align*}
+yields the system of equations
+\begin{align*}
+  \begin{cases}
+    A + B &= 0\\
+    A + 2B - 1 &= 0,
+  \end{cases}
+\end{align*}
+which has the solution
+\begin{align*}
+  A &= -1;\\
+  B &= 1.
+\end{align*}
+Then,
+\begin{align*}
+  g(x) &= -\frac{1}{2x - 1} + \frac{1}{x - 1}\\
+       &= \frac{1}{1 - 2x} - \frac{1}{1 - x}\\
+       &= \sum_{n=0}^\infty{(2x)^n} - \sum_{n=0}^\infty{x^n}\\
+       &= \sum_{n=0}^\infty{(2^n - 1)x^n}.
+\end{align*}
+Thus,
+\begin{align*}
+  \answer{h_n = 2^n - 1}.
+\end{align*}
 
 
 
